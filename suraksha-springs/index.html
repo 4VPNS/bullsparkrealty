@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suraksha Springs | Luxury Apartments in Bangalore</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            light: '#f5e7c1',
+                            DEFAULT: '#d4af37',
+                            dark: '#b8860b',
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        .gold-gradient {
+            background: linear-gradient(135deg, #fff6e5 0%, #d4af37 100%);
+        }
+        .text-shadow {
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body class="font-sans bg-white" x-data="{
+    showModal: false,
+    showBrochure: false,
+    formData: {
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+    },
+    isValid() {
+        return this.formData.name.trim() !== '' && 
+               this.formData.phone.trim() !== '' && 
+               this.formData.phone.length >= 10;
+    },
+    submitForm() {
+        if(this.isValid()) {
+            this.showModal = false;
+            if(this.showBrochure) {
+                window.open('https://brochures.bullsparkrealty.com/suraksha-groups/suraksha-springs.pdf', '_blank');
+            }
+            this.showBrochure = false;
+            // Reset form
+            this.formData = {
+                name: '',
+                email: '',
+                phone: '',
+                message: ''
+            };
+        }
+    }
+}" x-init="setTimeout(() => { showModal = true }, 10000)">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-xl font-bold text-gold-dark">
+                        Suraksha Springs
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6">
+                    <a href="#about" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">About</a>
+                    <a href="#amenities" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">Amenities</a>
+                    <a href="#floor-plans" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">Floor Plans</a>
+                    <a href="#location" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">Location</a>
+                    <a href="#contact" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">Contact</a>
+                    <button @click="showModal = true" class="bg-gold-dark hover:bg-gold transition-colors duration-300 text-white font-semibold py-2 px-4 rounded shadow-lg">
+                        Enquire Now
+                    </button>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 hover:text-gold-dark">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative">
+        <div class="gold-gradient min-h-screen flex items-center justify-center">
+            <div class="absolute inset-0 overflow-hidden">
+                <img src="/api/placeholder/1920/1080" alt="Suraksha Springs" class="w-full h-full object-cover opacity-20">
+            </div>
+            <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-gold-dark mb-6 text-shadow">Welcome to Suraksha Springs</h1>
+                <p class="text-xl md:text-2xl text-gray-800 mb-10 max-w-3xl mx-auto">Luxury 2 & 3 BHK Apartments at Begur Road, Bangalore</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mt-16">
+                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+                        <h3 class="text-gold-dark text-xl font-semibold mb-2">Apartment Sizes</h3>
+                        <p class="text-gray-700">1040 to 1515 Sq.Ft</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+                        <h3 class="text-gold-dark text-xl font-semibold mb-2">Starting Price</h3>
+                        <p class="text-gray-700">₹90 Lakhs Onwards</p>
+                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+                        <h3 class="text-gold-dark text-xl font-semibold mb-2">Possession By</h3>
+                        <p class="text-gray-700">January 2026</p>
+                    </div>
+                </div>
+                
+                <div class="mt-12">
+                    <button @click="showModal = true" class="inline-block bg-gold-dark hover:bg-gold text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 text-lg">
+                        Request Details
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">About <span class="text-gold-dark">Suraksha Springs</span></h2>
+                <div class="w-24 h-1 bg-gold-dark mx-auto mt-4 mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">Discover luxury living in Bangalore</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="/api/placeholder/600/400" alt="Suraksha Springs Building" class="rounded-lg shadow-xl w-full">
+                </div>
+                <div>
+                    <div class="space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Suraksha Springs is an upcoming residential project on Begur Road, Bangalore, offering 2 & 3 BHK apartments that spreads across 2.25 acres. This G+4 structure comprises 180 units, designed to cater to modern family needs.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            The 2 BHK apartments range from 1040-1195 sqft, and the 3 BHK apartments range from 1385-1515 sqft. Possession begins in January 2026.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Strategically located, Suraksha Springs ensures connectivity to essential amenities, educational institutions, and entertainment hubs. This pre-launch venture promises comfort, elegance, and innovation, setting a new standard in contemporary living in Bangalore.
+                        </p>
+                        
+                        <div class="grid grid-cols-2 gap-4 mt-8">
+                            <div class="bg-white p-4 rounded shadow">
+                                <h4 class="font-semibold text-gold-dark">Property Type</h4>
+                                <p class="text-gray-700">Apartment</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow">
+                                <h4 class="font-semibold text-gold-dark">Structure</h4>
+                                <p class="text-gray-700">G+4 Floors</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow">
+                                <h4 class="font-semibold text-gold-dark">Project Area</h4>
+                                <p class="text-gray-700">2.25 Acres</p>
+                            </div>
+                            <div class="bg-white p-4 rounded shadow">
+                                <h4 class="font-semibold text-gold-dark">RERA Number</h4>
+                                <p class="text-gray-700 text-sm">PRM/KA/RERA/1251/310/PR/180424/006787</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Amenities Section -->
+    <section id="amenities" class="py-20 gold-gradient">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">Luxurious <span class="text-gold-dark">Amenities</span></h2>
+                <div class="w-24 h-1 bg-gold-dark mx-auto mt-4 mb-8"></div>
+                <p class="text-xl text-gray-700 max-w-4xl mx-auto">Indulge in a lifestyle of comfort and elegance</p>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-gold-dark text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">Swimming Pool</h3>
+                    <p class="text-gray-600 text-center">Dive into relaxation with our pristine swimming pool</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-gold-dark text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">Gym</h3>
+                    <p class="text-gray-600 text-center">State-of-the-art fitness center for your health and wellness</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-gold-dark text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9.348 14.651a3.75 3.75 0 010-5.303m5.304 0a3.75 3.75 0 010 5.303m-7.425 2.122a6.75 6.75 0 010-9.546m9.546 0a6.75 6.75 0 010 9.546M5.106 18.894c-3.808-3.808-3.808-9.98 0-13.789m13.788 0c3.808 3.808 3.808 9.981 0 13.79M12 12h.008v.007H12V12zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">Jogging Track</h3>
+                    <p class="text-gray-600 text-center">Stay active with our well-designed jogging track</p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
+                    <div class="text-gold-dark text-4xl mb-4">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2 text-center">BBQ Area</h3>
+                    <p class="text-gray-600 text-center">Enjoy outdoor gatherings in our dedicated BBQ zone</p>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Butterfly Garden</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Indoor Games Room</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Movie Screening Area</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Basketball Court</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Badminton Zone</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Cricket Zone</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Splash & Play Zone</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Medicinal Plant Trail</span>
+                </div>
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                    <div class="text-gold-dark mr-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                        </svg>
+                    </div>
+                    <span class="text-gray-700">Herb Garden</span>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <button @click="showModal = true" class="inline-block bg-gold-dark hover:bg-gold text-white font-bold py-2 px-6 rounded shadow-lg transform hover:scale-105 transition-transform duration-300">
+                    View All Amenities
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floor Plans Section -->
+    <section id="floor-plans" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">Floor <span class="text-gold-dark">Plans</span></h2>
+                <div class="w-24 h-1 bg-gold-dark mx-auto mt-4 mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">Thoughtfully designed spaces for modern living</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-64">
+                        <img src="/api/placeholder/800/400" alt="2 BHK Floor Plan" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <h3 class="text-white text-3xl font-bold text-shadow">2 BHK</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between mb-4">
+                            <div>
+                                <h4 class="text-sm text-gray-500">Size Range</h4>
+                                <p class="font-semibold text-gray-800">1040 - 1195 Sq.Ft</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-500">Price Range</h4>
+                                <p class="font-semibold text-gray-800">₹80 - 92 Lakhs</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-gray-600">
+                                <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Spacious master bedroom with attached bathroom
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Modern kitchen with premium fittings
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Wide balcony with panoramic views
+                            </li>
+                        </ul>
+                        <button @click="showModal = true; showBrochure = true" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
+                            Get Floor Plan Images
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
+                    <div class="relative h-64">
+                        <img src="/api/placeholder/800/400" alt="3 BHK Floor Plan" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <h3 class="text-white text-3xl font-bold text-shadow">3 BHK</h3>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between mb-4">
+                            <div>
+                                <h4 class="text-sm text-gray-500">Size Range</h4>
+                                <p class="font-semibold text-gray-800">1385 - 1515 Sq.Ft</p>
+                            </div>
+                            <div>
+                                <h4 class="text-sm text-gray-500">Price Range</h4>
+                                <p class="font-semibold text-gray-800">₹1.06 - 1.16 Crores</p>
+                            </div>
+                        </div>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-center text-gray-600">
+                                <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Spacious master bedroom with attached bathroom
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Modern kitchen with premium fittings
+                            </li>
+                            <li class="flex items-center text-gray-600">
+                                <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                </svg>
+                                Wide balcony with panoramic views
+                            </li>
+                        </ul>
+                        <button @click="showModal = true; showBrochure = true" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
+                            Get Floor Plan Images
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <iframe src="https://saitejachenji93.getform.com/nx7wo" frameborder="0"></iframe>
+
+    <!-- Contact Us Section
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900">Contact <span class="text-gold-dark">Us</span></h2>
+                <div class="w-24 h-1 bg-gold-dark mx-auto mt-4 mb-8"></div>
+                <p class="text-xl text-gray-600 max-w-4xl mx-auto">We'd love to hear from you</p>
+            </div>
+            <div class="max-w-3xl mx-auto">
+                <form action="https://saitejachenji93.getform.com/nx7wo" method="POST">
+                    <div class="grid grid-cols-1 gap-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Modal -->
+    <div x-show="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+            <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
+            <form action="https://saitejachenji93.getform.com/nx7wo" method="POST">
+                <div class="grid grid-cols-1 gap-6">
+                    <div>
+                        <label for="modal-name" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="modal-name" name="name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                    </div>
+                    <div>
+                        <label for="modal-email" class="block text-sm font-medium text-gray-700">Email</label>
+                        <input type="email" id="modal-email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                    </div>
+                    <div>
+                        <label for="modal-phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                        <input type="tel" id="modal-phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                    </div>
+                    <div>
+                        <label for="modal-message" class="block text-sm font-medium text-gray-700">Message</label>
+                        <textarea id="modal-message" name="message" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark"></textarea>
+                    </div>
+                    <div>
+                        <button type="submit" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
+                    </div>
+                </div>
+            </form>
+            <button @click="showModal = false" class="absolute top-2 right-2 text-gray-700 hover:text-gray-900">
+                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-6">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>Powered by Bull Spark Realty</p>
+        </div>
+    </footer>
+</body>
+</html>
