@@ -6,6 +6,9 @@
     <title>Suraksha Springs | Luxury Apartments in Bangalore</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.12.0/cdn.min.js" defer></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -28,7 +31,116 @@
         .text-shadow {
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
+                .mobile-nav-item {
+                    display: flex;
+                    align-items: center;
+                    padding: 1rem;
+                    margin: 0.5rem 0;
+                    border-radius: 0.5rem;
+                    color: #4b5563;
+                    transition: all 0.3s ease;
+                }
+                
+                .mobile-nav-item:hover {
+                    background-color: #f5e7c1;
+                    color: #b8860b;
+                    transform: translateX(5px);
+                }
+                
+                body.menu-open {
+                    overflow: hidden;
+                }
+                
+                @keyframes fadeIn {
+                    from { opacity: 0; }
+                    to { opacity: 1; }
+                }
+                
+                @keyframes slideIn {
+                    from { transform: translateX(100%); }
+                    to { transform: translateX(0); }
+                }
+                
+                .animate-fadeIn {
+                    animation: fadeIn 0.3s ease-in-out forwards;
+                }
+                
+                .animate-slideIn {
+                    animation: slideIn 0.3s ease-in-out forwards;
+                }
     </style>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            AOS.init();
+            setTimeout(() => { 
+                const contactModal = document.getElementById('contactModal');
+                if (contactModal) {
+                    openModal('contactModal');
+                }
+            }, 10000);
+
+            const mobileMenuButton = document.querySelector('.md\\:hidden button');
+            const mobileMenu = document.querySelector('.mobile-menu');
+
+            if (mobileMenuButton && mobileMenu) {
+                mobileMenuButton.addEventListener('click', function() {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+        });
+
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.classList.add('modal-active');
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-active');
+            }
+        }
+
+        function submitForm() {
+            const form = document.getElementById('contactForm');
+            if (form.checkValidity()) {
+                closeModal('contactModal');
+                window.open('https://bullsparkrealty.com/brochures/suraksha-springs.pdf', '_blank');
+                form.reset();
+            }
+        }
+    </script>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Suraksha Springs - Luxury 2 & 3 BHK Apartments at Begur Road, Bangalore. Experience premium living with world-class amenities.">
+    <meta name="keywords" content="Suraksha Springs, luxury apartments, 2 BHK, 3 BHK, Begur Road, Bangalore, residential project, premium living">
+    <meta name="author" content="Bull Spark Realty">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Suraksha Springs | Luxury Apartments in Bangalore">
+    <meta property="og:description" content="Suraksha Springs - Luxury 2 & 3 BHK Apartments at Begur Road, Bangalore. Experience premium living with world-class amenities.">
+    <meta property="og:image" content="/images/suraksha-springs-og.jpg">
+    <meta property="og:url" content="https://bullsparkrealty.com/suraksha-springs">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Suraksha Springs | Luxury Apartments in Bangalore">
+    <meta name="twitter:description" content="Suraksha Springs - Luxury 2 & 3 BHK Apartments at Begur Road, Bangalore. Experience premium living with world-class amenities.">
+    <meta name="twitter:image" content="/images/suraksha-springs-twitter.jpg">
+    
+    <!-- Favicon Meta Tags -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/suraksha-springs/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/suraksha-springs/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/suraksha-springs/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicons/suraksha-springs/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#b8860b">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <body class="font-sans bg-white" x-data="{
     showModal: false,
@@ -67,9 +179,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
                 <div class="flex items-center">
-                    <div class="text-xl font-bold text-gold-dark">
-                        Suraksha Springs
-                    </div>
+                    <img src="/images/suraksha-springs-logo.jpg" alt="Bull Spark Realty Logo" class="h-14 w-auto">
                 </div>
                 <div class="hidden md:flex items-center space-x-6">
                     <a href="#about" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">About</a>
@@ -77,48 +187,108 @@
                     <a href="#floor-plans" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">Floor Plans</a>
                     <a href="#location" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">Location</a>
                     <a href="#contact" class="text-gray-700 hover:text-gold-dark transition-colors duration-300">Contact</a>
-                    <button @click="showModal = true" class="bg-gold-dark hover:bg-gold transition-colors duration-300 text-white font-semibold py-2 px-4 rounded shadow-lg">
+                    <button onclick="openModal('contactModal')" class="bg-gold-dark hover:bg-gold transition-colors duration-300 text-white font-semibold py-2 px-4 rounded shadow-lg">
                         Enquire Now
                     </button>
                 </div>
                 <div class="md:hidden flex items-center">
-                    <button class="text-gray-700 hover:text-gold-dark">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <button id="mobileMenuToggle" class="text-gold-dark hover:text-gold focus:outline-none">
+                        <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
                     </button>
                 </div>
             </div>
         </div>
+
+        
+        <!-- Modern mobile menu overlay -->
+        <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden transition-opacity duration-300 opacity-0"></div>
+        
+        <!-- Modern slide-in mobile menu -->
+        <div id="mobileMenu" class="fixed top-0 right-0 w-4/5 max-w-xs h-full bg-white z-50 transform translate-x-full transition-transform duration-300 ease-in-out shadow-2xl">
+            <div class="flex justify-between items-center p-4 border-b border-gray-200">
+                <div class="text-xl font-bold text-gold-dark">Suraksha Springs</div>
+                <button id="closeMenu" class="text-gray-700 hover:text-gold-dark focus:outline-none">
+                    <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <div class="py-4 px-2">
+                <a href="#about" class="mobile-nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    About
+                </a>
+                <a href="#amenities" class="mobile-nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+                    </svg>
+                    Amenities
+                </a>
+                <a href="#floor-plans" class="mobile-nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+                    </svg>
+                    Floor Plans
+                </a>
+                <a href="#location" class="mobile-nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    Location
+                </a>
+                <a href="#contact" class="mobile-nav-item">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                    Contact
+                </a>
+            </div>
+            
+            <div class="absolute bottom-0 w-full p-4 border-t border-gray-200">
+                <button onclick="openModal('contactModal')" class="flex items-center justify-center w-full bg-gold-dark hover:bg-gold text-white font-semibold py-3 px-4 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    </svg>
+                    Enquire Now
+                </button>
+            </div>
+        </div>
+    
     </nav>
 
     <!-- Hero Section -->
-    <section id="hero" class="relative">
+    <section id="hero" class="relative" data-aos="fade-up">
         <div class="gold-gradient min-h-screen flex items-center justify-center">
             <div class="absolute inset-0 overflow-hidden">
-                <img src="/api/placeholder/1920/1080" alt="Suraksha Springs" class="w-full h-full object-cover opacity-20">
+                <img src="/images/suraksha-springs-hero-section.jpg" alt="Suraksha Springs" class="w-full h-full object-cover opacity-20">
             </div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 text-center">
                 <h1 class="text-5xl md:text-6xl font-bold text-gold-dark mb-6 text-shadow">Welcome to Suraksha Springs</h1>
                 <p class="text-xl md:text-2xl text-gray-800 mb-10 max-w-3xl mx-auto">Luxury 2 & 3 BHK Apartments at Begur Road, Bangalore</p>
                 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center mt-16">
-                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+                    <div data-aos="fade-up" class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
                         <h3 class="text-gold-dark text-xl font-semibold mb-2">Apartment Sizes</h3>
                         <p class="text-gray-700">1040 to 1515 Sq.Ft</p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+                    <div data-aos="fade-up" class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
                         <h3 class="text-gold-dark text-xl font-semibold mb-2">Starting Price</h3>
                         <p class="text-gray-700">₹90 Lakhs Onwards</p>
                     </div>
-                    <div class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
+                    <div data-aos="fade-up" class="bg-white p-8 rounded-lg shadow-lg transform hover:-translate-y-1 transition-transform duration-300">
                         <h3 class="text-gold-dark text-xl font-semibold mb-2">Possession By</h3>
                         <p class="text-gray-700">January 2026</p>
                     </div>
                 </div>
                 
-                <div class="mt-12">
-                    <button @click="showModal = true" class="inline-block bg-gold-dark hover:bg-gold text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 text-lg">
+                <div data-aos="fade-up" class="mt-12">
+                    <button onclick = "openModal('contactModal')" class="inline-block bg-gold-dark hover:bg-gold text-white font-bold py-3 px-8 rounded-full shadow-lg transform hover:scale-105 transition-transform duration-300 text-lg">
                         Request Details
                     </button>
                 </div>
@@ -127,9 +297,9 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 bg-gray-50">
+    <section id="about" class="py-20 bg-gray-50" data-aos="fade-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl font-bold text-gray-900">About <span class="text-gold-dark">Suraksha Springs</span></h2>
                 <div class="w-24 h-1 bg-gold-dark mx-auto mt-4 mb-8"></div>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto">Discover luxury living in Bangalore</p>
@@ -137,7 +307,7 @@
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
                 <div>
-                    <img src="/api/placeholder/600/400" alt="Suraksha Springs Building" class="rounded-lg shadow-xl w-full">
+                    <img src="/images/suraksha-springs.webp" alt="Suraksha Springs Building" class="rounded-lg shadow-xl w-full">
                 </div>
                 <div>
                     <div class="space-y-6">
@@ -152,21 +322,22 @@
                         </p>
                         
                         <div class="grid grid-cols-2 gap-4 mt-8">
-                            <div class="bg-white p-4 rounded shadow">
+                            <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
                                 <h4 class="font-semibold text-gold-dark">Property Type</h4>
                                 <p class="text-gray-700">Apartment</p>
                             </div>
-                            <div class="bg-white p-4 rounded shadow">
+                            <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
                                 <h4 class="font-semibold text-gold-dark">Structure</h4>
                                 <p class="text-gray-700">G+4 Floors</p>
                             </div>
-                            <div class="bg-white p-4 rounded shadow">
+                            <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
                                 <h4 class="font-semibold text-gold-dark">Project Area</h4>
                                 <p class="text-gray-700">2.25 Acres</p>
                             </div>
-                            <div class="bg-white p-4 rounded shadow">
+                            <div class="bg-white p-4 rounded shadow" data-aos="fade-up">
                                 <h4 class="font-semibold text-gold-dark">RERA Number</h4>
-                                <p class="text-gray-700 text-sm">PRM/KA/RERA/1251/310/PR/180424/006787</p>
+                                <p class="text-gray-700 text-sm">PRM/KA/RERA/1251/
+                                    310/PR/180424/006787</p>
                             </div>
                         </div>
                     </div>
@@ -176,15 +347,15 @@
     </section>
 
     <!-- Amenities Section -->
-    <section id="amenities" class="py-20 gold-gradient">
+    <section id="amenities" class="py-20 gold-gradient" data-aos="fade-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
+            <div data-aos="fade-up" class="text-center mb-16" data-aos="fade-up">
                 <h2 class="text-4xl font-bold text-gray-900">Luxurious <span class="text-gold-dark">Amenities</span></h2>
                 <div class="w-24 h-1 bg-gold-dark mx-auto mt-4 mb-8"></div>
                 <p class="text-xl text-gray-700 max-w-4xl mx-auto">Indulge in a lifestyle of comfort and elegance</p>
             </div>
             
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div data-aos="fade-up" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8" data-aos="fade-up">
                 <div class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
                     <div class="text-gold-dark text-4xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto">
@@ -195,7 +366,7 @@
                     <p class="text-gray-600 text-center">Dive into relaxation with our pristine swimming pool</p>
                 </div>
                 
-                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
                     <div class="text-gold-dark text-4xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z" />
@@ -216,7 +387,7 @@
                     <p class="text-gray-600 text-center">Stay active with our well-designed jogging track</p>
                 </div>
                 
-                <div class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
+                <div data-aos="fade-up" class="bg-white rounded-lg shadow-lg p-6 transform hover:-translate-y-1 transition-transform duration-300">
                     <div class="text-gold-dark text-4xl mb-4">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-12 h-12 mx-auto">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 8.25v-1.5m0 1.5c-1.355 0-2.697.056-4.024.166C6.845 8.51 6 9.473 6 10.608v2.513m6-4.87c1.355 0 2.697.055 4.024.165C17.155 8.51 18 9.473 18 10.608v2.513m-3-4.87v-1.5m-6 1.5v-1.5m12 9.75l-1.5.75a3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0 3.354 3.354 0 00-3 0 3.354 3.354 0 01-3 0L3 16.5m15-3.38a48.474 48.474 0 00-6-.37c-2.032 0-4.034.125-6 .37m12 0c.39.049.777.102 1.163.16 1.07.16 1.837 1.094 1.837 2.175v5.17c0 .62-.504 1.124-1.125 1.124H4.125A1.125 1.125 0 013 20.625v-5.17c0-1.08.768-2.014 1.837-2.174A47.78 47.78 0 016 13.12M12.265 3.11a.375.375 0 11-.53 0L12 2.845l.265.265zm-3 0a.375.375 0 11-.53 0L9 2.845l.265.265zm6 0a.375.375 0 11-.53 0L15 2.845l.265.265z" />
@@ -228,7 +399,7 @@
             </div>
             
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-12">
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -236,7 +407,7 @@
                     </div>
                     <span class="text-gray-700">Butterfly Garden</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -244,7 +415,7 @@
                     </div>
                     <span class="text-gray-700">Indoor Games Room</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -252,7 +423,7 @@
                     </div>
                     <span class="text-gray-700">Movie Screening Area</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -260,7 +431,7 @@
                     </div>
                     <span class="text-gray-700">Basketball Court</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -268,7 +439,7 @@
                     </div>
                     <span class="text-gray-700">Badminton Zone</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -276,7 +447,7 @@
                     </div>
                     <span class="text-gray-700">Cricket Zone</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -284,7 +455,7 @@
                     </div>
                     <span class="text-gray-700">Splash & Play Zone</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -292,7 +463,7 @@
                     </div>
                     <span class="text-gray-700">Medicinal Plant Trail</span>
                 </div>
-                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center">
+                <div class="bg-white bg-opacity-75 rounded-lg p-3 flex items-center" data-aos="fade-up">
                     <div class="text-gold-dark mr-3">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -302,8 +473,8 @@
                 </div>
             </div>
             
-            <div class="text-center mt-12">
-                <button @click="showModal = true" class="inline-block bg-gold-dark hover:bg-gold text-white font-bold py-2 px-6 rounded shadow-lg transform hover:scale-105 transition-transform duration-300">
+            <div class="text-center mt-12" data-aos="fade-up">
+                <button onclick="openModal('contactModal')" class="inline-block bg-gold-dark hover:bg-gold text-white font-bold py-2 px-6 rounded shadow-lg transform hover:scale-105 transition-transform duration-300">
                     View All Amenities
                 </button>
             </div>
@@ -311,7 +482,7 @@
     </section>
 
     <!-- Floor Plans Section -->
-    <section id="floor-plans" class="py-20 bg-white">
+    <section id="floor-plans" class="py-20 bg-white" data-aos="fade-up">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-4xl font-bold text-gray-900">Floor <span class="text-gold-dark">Plans</span></h2>
@@ -322,43 +493,42 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                 <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
                     <div class="relative h-64">
-                        <img src="/api/placeholder/800/400" alt="2 BHK Floor Plan" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                            <h3 class="text-white text-3xl font-bold text-shadow">2 BHK</h3>
+                        <div class="absolute inset-0 bg-gold bg-opacity-30 flex items-center justify-center">
+                            <h3 class="text-gold-dark text-3xl font-bold text-shadow">2 BHK</h3>
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between mb-4">
-                            <div>
+                            <div data-aos="fade-up">
                                 <h4 class="text-sm text-gray-500">Size Range</h4>
                                 <p class="font-semibold text-gray-800">1040 - 1195 Sq.Ft</p>
                             </div>
-                            <div>
+                            <div data-aos="fade-up">
                                 <h4 class="text-sm text-gray-500">Price Range</h4>
                                 <p class="font-semibold text-gray-800">₹80 - 92 Lakhs</p>
                             </div>
                         </div>
                         <ul class="space-y-2 mb-6">
-                            <li class="flex items-center text-gray-600">
+                            <li class="flex items-center text-gray-600" data-aos="fade-up">
                                 <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Spacious master bedroom with attached bathroom
                             </li>
-                            <li class="flex items-center text-gray-600">
+                            <li class="flex items-center text-gray-600" data-aos="fade-up">
                                 <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Modern kitchen with premium fittings
                             </li>
-                            <li class="flex items-center text-gray-600">
+                            <li class="flex items-center text-gray-600" data-aos="fade-up">
                                 <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Wide balcony with panoramic views
                             </li>
                         </ul>
-                        <button @click="showModal = true; showBrochure = true" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
+                        <button data-aos="fade-up" onclick="openModal('contactModal')" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
                             Get Floor Plan Images
                         </button>
                     </div>
@@ -366,43 +536,42 @@
                 
                 <div class="bg-gray-50 rounded-lg shadow-lg overflow-hidden">
                     <div class="relative h-64">
-                        <img src="/api/placeholder/800/400" alt="3 BHK Floor Plan" class="w-full h-full object-cover">
-                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
-                            <h3 class="text-white text-3xl font-bold text-shadow">3 BHK</h3>
+                        <div class="absolute inset-0 bg-gold bg-opacity-30 flex items-center justify-center">
+                            <h3 class="text-gold-dark text-3xl font-bold text-shadow">3 BHK</h3>
                         </div>
                     </div>
                     <div class="p-6">
                         <div class="flex justify-between mb-4">
-                            <div>
+                            <div data-aos="fade-up">
                                 <h4 class="text-sm text-gray-500">Size Range</h4>
                                 <p class="font-semibold text-gray-800">1385 - 1515 Sq.Ft</p>
                             </div>
-                            <div>
+                            <div data-aos="fade-up">
                                 <h4 class="text-sm text-gray-500">Price Range</h4>
                                 <p class="font-semibold text-gray-800">₹1.06 - 1.16 Crores</p>
                             </div>
                         </div>
                         <ul class="space-y-2 mb-6">
-                            <li class="flex items-center text-gray-600">
+                            <li data-aos="fade-up" class="flex items-center text-gray-600">
                                 <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Spacious master bedroom with attached bathroom
                             </li>
-                            <li class="flex items-center text-gray-600">
+                            <li data-aos="fade-up" class="flex items-center text-gray-600">
                                 <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Modern kitchen with premium fittings
                             </li>
-                            <li class="flex items-center text-gray-600">
+                            <li data-aos="fade-up" class="flex items-center text-gray-600">
                                 <svg class="h-5 w-5 text-gold-dark mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
                                 </svg>
                                 Wide balcony with panoramic views
                             </li>
                         </ul>
-                        <button @click="showModal = true; showBrochure = true" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
+                        <button data-aos="fade-up" onclick = "openModal('contactModal')" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded transition-colors duration-300">
                             Get Floor Plan Images
                         </button>
                     </div>
@@ -410,78 +579,72 @@
             </div>
         </div>
     </section>
-    <iframe src="https://saitejachenji93.getform.com/nx7wo" frameborder="0"></iframe>
 
-    <!-- Contact Us Section
-    <section id="contact" class="py-20 bg-gray-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-900">Contact <span class="text-gold-dark">Us</span></h2>
-                <div class="w-24 h-1 bg-gold-dark mx-auto mt-4 mb-8"></div>
-                <p class="text-xl text-gray-600 max-w-4xl mx-auto">We'd love to hear from you</p>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <form action="https://saitejachenji93.getform.com/nx7wo" method="POST">
-                    <div class="grid grid-cols-1 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" name="name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea id="message" name="message" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark"></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+    <section class="gold-gradient py-8" data-aos="fade-up">
+        <div data-aos="fade-up" class="text-center my-8">
+            <h2 class="text-3xl font-bold text-primary-blue mt-6" data-aos="fade-up">Contact Us</h2>
+            <div class="w-24 h-1 bg-primary-blue mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
         </div>
-    </section> -->
+      <form data-aos="fade-up" id="contactForm" action="https://script.google.com/macros/s/AKfycbyU4atgOykK4FRDzYCGATNfpezveZ6fQx9UeYc2eS11AhD_pycr3oTYMzSKbF6-GY4F/exec" method="POST" class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 my-8">
+        <div class="mb-4">
+            <input type="text" id="project" name="project" value="bull spark realty" style="display: none;">
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+          <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+        </div>
+        
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+          <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+        </div>
+
+        <div class="mb-4">
+            <label for="number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number:</label>
+            <input type="text" id="number" name="number" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+        </div>
+        
+        <div class="mb-4">
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message:</label>
+          <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent"></textarea>
+        </div>
+        
+        <button type="submit" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded-md shadow-lg transition-colors duration-300">Submit</button>
+      </form>
+    </section>
 
     <!-- Modal -->
-    <div x-show="showModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-            <form action="https://saitejachenji93.getform.com/nx7wo" method="POST">
-                <div class="grid grid-cols-1 gap-6">
+    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative">
+            <form id="contactModalForm" action="https://script.google.com/macros/s/AKfycbyU4atgOykK4FRDzYCGATNfpezveZ6fQx9UeYc2eS11AhD_pycr3oTYMzSKbF6-GY4F/exec" method="POST">
+                <div class="grid grid-cols-1 gap-4">
                     <div>
                         <label for="modal-name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="modal-name" name="name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                        <input type="text" id="modal-project" name="project" value="bull spark realty" style="display: none;">
+                        <input type="text" id="modal-name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
                     </div>
                     <div>
                         <label for="modal-email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="modal-email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                        <input type="email" id="modal-email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
                     </div>
                     <div>
                         <label for="modal-phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input type="tel" id="modal-phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark">
+                        <input type="tel" id="modal-phone" name="phone" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
                     </div>
                     <div>
                         <label for="modal-message" class="block text-sm font-medium text-gray-700">Message</label>
-                        <textarea id="modal-message" name="message" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-gold-dark focus:border-gold-dark"></textarea>
+                        <textarea id="modal-message" name="message" rows="3" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue"></textarea>
                     </div>
                     <div>
-                        <button type="submit" class="w-full bg-gold-dark hover:bg-gold text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
+                        <button type="submit" class="w-full bg-gold-dark  hover:bg-gold text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
                     </div>
                 </div>
             </form>
-            <button @click="showModal = false" class="absolute top-2 right-2 text-gray-700 hover:text-gray-900">
+            <button onclick="closeModal('contactModal')" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
                 <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>
             </button>
         </div>
-    </div>
+    </div>    
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-6">
@@ -489,5 +652,93 @@
             <p>Powered by Bull Spark Realty</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event){
+            event.preventDefault(); //prevent the default form submission.
+            fetch(this.action, {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(this))
+            })
+            .then(response => response.text())
+            .then(data => {
+                if(data === "success"){
+                    alert("Thank you! Your message has been sent. Click on 'ok' to access brochure");
+                    document.getElementById("contactForm").reset();
+                } else {
+                    alert("There was an error. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An unexpected error has occured.");
+            });
+        });
+    </script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+            const mobileMenu = document.getElementById('mobileMenu');
+            const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+            const closeMenu = document.getElementById('closeMenu');
+            const mobileNavItems = document.querySelectorAll('.mobile-nav-item');
+            
+            function openMobileMenu() {
+                mobileMenuOverlay.classList.remove('hidden');
+                setTimeout(() => {
+                    mobileMenuOverlay.classList.add('opacity-100');
+                    mobileMenuOverlay.classList.remove('opacity-0');
+                }, 10);
+                
+                mobileMenu.classList.remove('translate-x-full');
+                document.body.classList.add('menu-open');
+            }
+            
+            function closeMobileMenu() {
+                mobileMenuOverlay.classList.remove('opacity-100');
+                mobileMenuOverlay.classList.add('opacity-0');
+                
+                mobileMenu.classList.add('translate-x-full');
+                document.body.classList.remove('menu-open');
+                
+                setTimeout(() => {
+                    mobileMenuOverlay.classList.add('hidden');
+                }, 300);
+            }
+            
+            mobileMenuToggle.addEventListener('click', openMobileMenu);
+            closeMenu.addEventListener('click', closeMobileMenu);
+            mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+            
+            mobileNavItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    closeMobileMenu();
+                });
+            });
+        });
+    </script> 
+    <script>
+        document.getElementById("contactModalForm").addEventListener("submit", function(event){
+            event.preventDefault(); //prevent the default form submission.
+            fetch(this.action, {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(this))
+            })
+            .then(response => response.text())
+            .then(data => {
+                if(data === "success"){
+                    window.open('https://bullsparkrealty.com/brochures/suraksha-springs.pdf', '_blank');
+                    document.getElementById("contactModalForm").reset();
+                } else {
+                    alert("There was an error. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An unexpected error has occured.");
+            });
+        });
+    </script>
 </body>
 </html>

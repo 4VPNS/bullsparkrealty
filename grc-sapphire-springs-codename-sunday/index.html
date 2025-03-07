@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRC Sapphire Springs (Codename Sunday)</title>
+    <title>GRC Sapphire Spring (Codename Sunday)</title>
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -83,31 +83,168 @@
                 transform: scale(1);
             }
         }
+        /* Add these styles to your existing <style> tag */
+
+/* Better responsive hero section */
+@media (max-width: 768px) {
+    .hero-image {
+        height: 60vh;
+    }
+    
+    .hero-overlay .text-4xl {
+        font-size: 2rem;
+    }
+    
+    /* Increase tap target sizes on mobile */
+    nav a, button {
+        padding: 0.5rem;
+    }
+    
+    /* Better spacing for mobile sections */
+    section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    /* Ensure forms are usable on mobile */
+    input, textarea, select {
+        font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+    
+    /* Make amenity items more visible on mobile */
+    .amenity-item {
+        padding: 1rem;
+    }
+    
+    /* Floor plans better spacing on mobile */
+    #floor-plans .grid {
+        gap: 1rem;
+    }
+    
+    /* Contact form better fit on mobile */
+    #contactForm, #contactModal form {
+        padding: 1rem;
+    }
+}
+
+/* Improve modal on very small screens */
+@media (max-width: 480px) {
+    #contactModal .bg-white {
+        width: 90%;
+        margin: 0 auto;
+        padding: 1rem;
+    }
+    
+    #contactModal .grid {
+        gap: 0.75rem;
+    }
+}
+
+/* Fix specific issues with grid layout on medium screens */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .grid-cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
     </style>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="GRC Sapphire Springs - Luxury 2-4 BHK Apartments at Gottigere, Bangalore. Discover your dream home with world-class amenities.">
+    <meta name="keywords" content="GRC Sapphire Springs, luxury apartments, 2 BHK, 3 BHK, 4 BHK, Gottigere, Bangalore, residential project, premium living">
+    <meta name="author" content="Bull Spark Realty">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="GRC Sapphire Springs | Luxury Apartments in Bangalore">
+    <meta property="og:description" content="GRC Sapphire Springs - Luxury 2-4 BHK Apartments at Gottigere, Bangalore. Discover your dream home with world-class amenities.">
+    <meta property="og:image" content="/images/favicons/grc-sapphire-spring/favicon-32x32.png">
+    <meta property="og:url" content="https://bullsparkrealty.com/grc-sapphire-springs-codename-sunday">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="GRC Sapphire Springs | Luxury Apartments in Bangalore">
+    <meta name="twitter:description" content="GRC Sapphire Springs - Luxury 2-4 BHK Apartments at Gottigere, Bangalore. Discover your dream home with world-class amenities.">
+    <meta name="twitter:image" content="/images/favicons/grc-sapphire-spring/apple-touch-icon.png">
+    
+    <!-- Favicon Meta Tags -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/favicons/grc-sapphire-spring/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/grc-sapphire-spring/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/grc-sapphire-spring/favicon-16x16.png">
+    <link rel="manifest" href="/images/favicons/grc-sapphire-spring/site.webmanifest">
+    <meta name="msapplication-TileColor" content="#0a4275">
+    <meta name="theme-color" content="#ffffff">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+
             AOS.init();
-            setTimeout(() => { openModal('contactModal') }, 10000);
+    
+            // Mobile menu toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            mobileMenuButton.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when clicking on a link
+            const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+            mobileMenuLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            setTimeout(() => { 
+                const contactModal = document.getElementById('contactModal');
+                if (contactModal) {
+                    openModal('contactModal');
+                }
+            }, 10000);
         });
 
         function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
-            document.body.classList.add('modal-active');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.remove('hidden');
+                document.body.classList.add('modal-active');
+            }
         }
 
         function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
-            document.body.classList.remove('modal-active');
+            const modal = document.getElementById(modalId);
+            if (modal) {
+                modal.classList.add('hidden');
+                document.body.classList.remove('modal-active');
+            }
         }
 
         function submitForm() {
             const form = document.getElementById('contactForm');
             if (form.checkValidity()) {
                 closeModal('contactModal');
-                window.open('https://brochures.bullsparkrealty.com/grc-sapphire-springs.pdf', '_blank');
+                window.open('https://bullsparkrealty.com/grc-sapphire-spring.pdf', '_blank');
                 form.reset();
             }
         }
+
+// Make sure inputs look good on mobile
+const adjustForMobile = () => {
+    const inputs = document.querySelectorAll('input, textarea');
+    inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+            // Give extra space when keyboard appears on mobile
+            if (window.innerWidth < 768) {
+                window.scrollTo(0, this.offsetTop - 20);
+            }
+        });
+    });
+};
+
+// Run on page load
+adjustForMobile();
+
+// Also handle window resize
+window.addEventListener('resize', adjustForMobile);
     </script>
 </head>
 <body class="bg-gray-50">
@@ -115,7 +252,7 @@
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
             <div class="flex items-center">
-                <h1 class="text-2xl font-bold text-primary-blue">GRC Sapphire Springs</h1>
+                <h1 class=" text-lg font-md lg:text-2xl lg:font-bold text-primary-blue ">GRC Sapphire Springs</h1>
                 <span class="ml-2 bg-yellow-400 text-xs font-semibold px-2 py-1 rounded">Codename: SUNDAY</span>
             </div>
             <div class="hidden md:flex space-x-6">
@@ -124,7 +261,7 @@
                 <a href="#amenities" class="text-primary-blue hover:text-secondary-blue font-medium">Amenities</a>
                 <a href="#floor-plans" class="text-primary-blue hover:text-secondary-blue font-medium">Floor Plans</a>
                 <a href="#location" class="text-primary-blue hover:text-secondary-blue font-medium">Location</a>
-                <a href="#contact" class="text-primary-blue hover:text-secondary-blue font-medium">Contact</a>
+                <a href="#contactForm" class="text-primary-blue hover:text-secondary-blue font-medium">Contact</a>
             </div>
             <div class="md:hidden">
                 <button id="mobile-menu-button" class="text-primary-blue">
@@ -154,10 +291,10 @@
                     <h1 class="text-4xl md:text-6xl font-bold mb-4">GRC Sapphire Springs</h1>
                     <p class="text-xl md:text-2xl mb-8">Your Gateway to Elevated Living</p>
                     <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
-                        <button class="bg-white text-primary-blue px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all pulse" onclick="openModal('contactModal')">
+                        <button onclick="openModal('contactModal')" class="bg-white text-primary-blue px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all pulse">
                             Enquire Now
                         </button>
-                        <button class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-primary-blue transition-all" onclick="openModal('brochureModal')">
+                        <button onclick="openModal('contactModal')" class="border-2 border-white text-white px-6 py-3 rounded-lg font-semibold">
                             Download Brochure
                         </button>
                     </div>
@@ -192,10 +329,10 @@
                 <div class="w-24 h-1 bg-primary-blue mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
             </div>
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-right">
+                <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-up">
                     <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="GRC Sapphire Springs" class="rounded-lg shadow-xl">
                 </div>
-                <div class="md:w-1/2 md:pl-12" data-aos="fade-left">
+                <div class="md:w-1/2 md:pl-12" data-aos="fade-down">
                     <p class="text-gray-700 mb-6 leading-relaxed">
                         Discover your dream home at GRC Sapphire Spring, an exquisite residential development nestled in Gundappa Layout, Gottigere, Bangalore. Offering a range of 2, 2.5, 3, and 4 BHK apartments, this pre-launch project combines contemporary design with world-class amenities.
                     </p>
@@ -306,7 +443,7 @@
                 </div>
             </div>
             <div class="text-center mt-10">
-                <button class="btn-primary px-6 py-3 rounded-lg font-semibold" data-aos="fade-up" onclick="openModal('amenitiesModal')">
+                <button onclick="openModal('contactModal')" class="btn-primary px-6 py-3 rounded-lg font-semibold" data-aos="fade-up" onclick="openModal('amenitiesModal')">
                     View All Amenities
                 </button>
             </div>
@@ -325,11 +462,8 @@
                 <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-primary-blue">2 BHK</h3>
-                        <p class="text-gray-600 mt-2">800 sq.ft.</p>
-                        <div class="my-6 flex justify-center">
-                            <img src="/api/placeholder/300/200" alt="2 BHK Floor Plan" class="rounded-md">
-                        </div>
-                        <button class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
+                        <p class="text-gray-600 mt-2 my-6">800 sq.ft.</p>
+                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
                             Get Images
                         </button>
                     </div>
@@ -337,11 +471,8 @@
                 <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-primary-blue">2.5 BHK</h3>
-                        <p class="text-gray-600 mt-2">1000 sq.ft.</p>
-                        <div class="my-6 flex justify-center">
-                            <img src="/api/placeholder/300/200" alt="2.5 BHK Floor Plan" class="rounded-md">
-                        </div>
-                        <button class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
+                        <p class="text-gray-600 mt-2 my-6">1000 sq.ft.</p>
+                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
                             Get Images
                         </button>
                     </div>
@@ -349,11 +480,8 @@
                 <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-primary-blue">3 BHK</h3>
-                        <p class="text-gray-600 mt-2">1300 sq.ft.</p>
-                        <div class="my-6 flex justify-center">
-                            <img src="/api/placeholder/300/200" alt="3 BHK Floor Plan" class="rounded-md">
-                        </div>
-                        <button class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
+                        <p class="text-gray-600 mt-2 my-6">1300 sq.ft.</p>
+                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
                             Get Images
                         </button>
                     </div>
@@ -361,11 +489,8 @@
                 <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-primary-blue">4 BHK</h3>
-                        <p class="text-gray-600 mt-2">1700 sq.ft.</p>
-                        <div class="my-6 flex justify-center">
-                            <img src="/api/placeholder/300/200" alt="4 BHK Floor Plan" class="rounded-md">
-                        </div>
-                        <button class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
+                        <p class="text-gray-600 mt-2 my-6">1700 sq.ft.</p>
+                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
                             Get Images
                         </button>
                     </div>
@@ -383,7 +508,7 @@
                 <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="200">Strategically located for your convenience</p>
             </div>
             <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8" data-aos="fade-right">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8" data-aos="fade-up">
                     <div class="bg-white p-6 rounded-lg shadow-lg">
                         <h3 class="text-xl font-bold text-primary-blue mb-4">Gundappa Layout, Gottigere, Bangalore</h3>
                         <p class="text-gray-700 mb-6 leading-relaxed">
@@ -417,87 +542,81 @@
                         </div>
                     </div>
                 </div>
-                <div class="md:w-1/2" data-aos="fade-left">
+                <div class="md:w-1/2" data-aos="fade-down">
                     <div class="w-full h-64 rounded-lg shadow-lg overflow-hidden">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3890.123456789!2d77.123456789!3d12.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae123456789!2sGRC%20Sapphire%20Springs!5e0!3m2!1sen!2sin!4v1631234567890!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3808.7646898546236!2d77.59016307497849!3d12.856038887448754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6b94a0f4dd21%3A0x9194b054c280c89d!2sSapphire%20Spring%20by%20GRC%20(Codename%3A%20SUNDAY)!5e1!3m2!1sen!2sin!4v1741328638119!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <iframe src="https://saitejachenji93.getform.com/nx7wo" frameborder="0"></iframe>
-
-    <!-- Contact Us Section -->
-    <!-- <section id="contact" class="py-16 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-primary-blue" data-aos="fade-up">Contact <span class="text-secondary-blue">Us</span></h2>
-                <div class="w-24 h-1 bg-primary-blue mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
-                <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="200">We'd love to hear from you</p>
-            </div>
-            <div class="max-w-3xl mx-auto">
-                <form action="https://saitejachenji93.getform.com/nx7wo" method="POST">
-                    <div class="grid grid-cols-1 gap-6">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" id="name" name="name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" id="email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
-                        </div>
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
-                            <textarea id="message" name="message" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue"></textarea>
-                        </div>
-                        <div>
-                            <button type="submit" class="w-full bg-primary-blue hover:bg-secondary-blue text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
-                        </div>
-                    </div>
-                </form>
-            </div>
+    <section>
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-primary-blue mt-6" data-aos="fade-up">Contact Us</h2>
+            <div class="w-24 h-1 bg-primary-blue mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
         </div>
-    </section> -->
+      <form id="contactForm" action="https://script.google.com/macros/s/AKfycbyU4atgOykK4FRDzYCGATNfpezveZ6fQx9UeYc2eS11AhD_pycr3oTYMzSKbF6-GY4F/exec" method="POST" class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 my-8">
+        <div class="mb-4">
+            <input type="text" id="project" name="project" value="bull spark realty" style="display: none;">
+          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+          <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+        </div>
+        
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+          <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+        </div>
 
+        <div class="mb-4">
+            <label for="number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number:</label>
+            <input type="text" id="number" name="number" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+        </div>
+        
+        <div class="mb-4">
+          <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message:</label>
+          <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent"></textarea>
+        </div>
+        
+        <button type="submit" class="w-full bg-primary-blue hover:bg-secondary-blue text-white font-semibold py-2 px-4 rounded-md shadow-lg transition-colors duration-300">Submit</button>
+      </form>
+    </section>
+
+    
     <!-- Modal -->
-    <div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
-        <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
-            <h2 class="text-2xl font-bold text-gray-900 mb-4">Contact Us</h2>
-            <form action="https://saitejachenji93.getform.com/nx7wo" method="POST">
-                <div class="grid grid-cols-1 gap-6">
-                    <div>
-                        <label for="modal-name" class="block text-sm font-medium text-gray-700">Name</label>
-                        <input type="text" id="modal-name" name="name" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
-                    </div>
-                    <div>
-                        <label for="modal-email" class="block text-sm font-medium text-gray-700">Email</label>
-                        <input type="email" id="modal-email" name="email" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
-                    </div>
-                    <div>
-                        <label for="modal-phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
-                        <input type="tel" id="modal-phone" name="phone" required class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
-                    </div>
-                    <div>
-                        <label for="modal-message" class="block text-sm font-medium text-gray-700">Message</label>
-                        <textarea id="modal-message" name="message" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue"></textarea>
-                    </div>
-                    <div>
-                        <button type="submit" class="w-full bg-primary-blue hover:bg-secondary-blue text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
-                    </div>
+<div id="contactModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+    <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full relative">
+        <form id='contactModalForm' action="https://script.google.com/macros/s/AKfycbyU4atgOykK4FRDzYCGATNfpezveZ6fQx9UeYc2eS11AhD_pycr3oTYMzSKbF6-GY4F/exec" method="POST">
+            <div class="grid grid-cols-1 gap-4">
+                <div>
+                    <input type="text" id="modal-project" name="project" value="bull spark realty" style="display: none;">
+                    <label for="modal-name" class="block text-sm font-medium text-gray-700">Name</label>
+                    <input type="text" id="modal-name" name="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
                 </div>
-            </form>
-            <button onclick="closeModal('contactModal')" class="absolute top-2 right-2 text-gray-700 hover:text-gray-900">
-                <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                </svg>
-            </button>
-        </div>
+                <div>
+                    <label for="modal-email" class="block text-sm font-medium text-gray-700">Email</label>
+                    <input type="email" id="modal-email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
+                </div>
+                <div>
+                    <label for="modal-phone" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="tel" id="modal-phone" name="phone" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue">
+                </div>
+                <div>
+                    <label for="modal-message" class="block text-sm font-medium text-gray-700">Message</label>
+                    <textarea id="modal-message" name="message" rows="3" placeholder="Text your preferences or something we want to know" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-primary-blue focus:border-primary-blue"></textarea>
+                </div>
+                <div>
+                    <button type="submit" class="w-full bg-primary-blue hover:bg-secondary-blue text-white font-semibold py-2 px-4 rounded shadow-lg transition-colors duration-300">Submit</button>
+                </div>
+            </div>
+        </form>
+        <button onclick="closeModal('contactModal')" class="absolute top-4 right-4 text-gray-700 hover:text-gray-900">
+            <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+        </button>
     </div>
+</div>
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-6">
@@ -505,5 +624,50 @@
             <p>Powered by Bull Spark Realty</p>
         </div>
     </footer>
+
+    <script>
+        document.getElementById("contactForm").addEventListener("submit", function(event){
+            event.preventDefault(); //prevent the default form submission.
+            fetch(this.action, {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(this))
+            })
+            .then(response => response.text())
+            .then(data => {
+                if(data === "success"){
+                    alert("Thank you! Your message has been sent. Click on 'ok' to access brochure");
+                    document.getElementById("contactForm").reset();
+                } else {
+                    alert("There was an error. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An unexpected error has occured.");
+            });
+        });
+    </script>
+    <script>
+        document.getElementById("contactModalForm").addEventListener("submit", function(event){
+            event.preventDefault(); //prevent the default form submission.
+            fetch(this.action, {
+                method: 'POST',
+                body: new URLSearchParams(new FormData(this))
+            })
+            .then(response => response.text())
+            .then(data => {
+                if(data === "success"){
+                    window.open('https://bullsparkrealty.com/grc-sapphire-spring.pdf', '_blank');
+                    document.getElementById("contactModalForm").reset();
+                } else {
+                    alert("There was an error. Please try again.");
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert("An unexpected error has occured.");
+            });
+        });
+    </script>
 </body>
 </html>
