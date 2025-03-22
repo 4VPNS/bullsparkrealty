@@ -222,7 +222,7 @@
             const form = document.getElementById('contactForm');
             if (form.checkValidity()) {
                 closeModal('contactModal');
-                window.open('https://bullsparkrealty.com/grc-sapphire-spring.pdf', '_blank');
+                window.open('https://bullsparkrealty.com/brochures/grc-sapphire-spring.pdf', '_blank');
                 form.reset();
             }
         }
@@ -301,7 +301,7 @@ window.addEventListener('resize', adjustForMobile);
                 </div>
                 <div class="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold">2-4 BHK</h3>
+                        <h3 class="text-lg font-semibold">2-3 BHK</h3>
                         <p class="text-sm">Luxury Apartments</p>
                     </div>
                     <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm p-4 rounded-lg">
@@ -309,7 +309,7 @@ window.addEventListener('resize', adjustForMobile);
                         <p class="text-sm">Project Area</p>
                     </div>
                     <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm p-4 rounded-lg">
-                        <h3 class="text-lg font-semibold">G+13</h3>
+                        <h3 class="text-lg font-semibold">G+14</h3>
                         <p class="text-sm">Floor Structure</p>
                     </div>
                     <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-sm p-4 rounded-lg">
@@ -346,11 +346,11 @@ window.addEventListener('resize', adjustForMobile);
                         </div>
                         <div class="bg-light-blue p-4 rounded-lg">
                             <h3 class="font-semibold text-primary-blue">Structure</h3>
-                            <p>G+13 floors</p>
+                            <p>G+14 floors</p>
                         </div>
                         <div class="bg-light-blue p-4 rounded-lg">
                             <h3 class="font-semibold text-primary-blue">Unit Types</h3>
-                            <p>2, 2.5, 3, & 4 BHK</p>
+                            <p>2, 2.5 & 3 BHK</p>
                         </div>
                         <div class="bg-light-blue p-4 rounded-lg">
                             <h3 class="font-semibold text-primary-blue">Status</h3>
@@ -458,7 +458,7 @@ window.addEventListener('resize', adjustForMobile);
                 <div class="w-24 h-1 bg-primary-blue mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
                 <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="200">Explore our thoughtfully designed living spaces</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
                 <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up">
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-primary-blue">2 BHK</h3>
@@ -481,15 +481,6 @@ window.addEventListener('resize', adjustForMobile);
                     <div class="p-6 text-center">
                         <h3 class="text-xl font-bold text-primary-blue">3 BHK</h3>
                         <p class="text-gray-600 mt-2 my-6">1300 sq.ft.</p>
-                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
-                            Get Images
-                        </button>
-                    </div>
-                </div>
-                <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="300">
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-primary-blue">4 BHK</h3>
-                        <p class="text-gray-600 mt-2 my-6">1700 sq.ft.</p>
                         <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
                             Get Images
                         </button>
@@ -657,7 +648,7 @@ window.addEventListener('resize', adjustForMobile);
             .then(response => response.text())
             .then(data => {
                 if(data === "success"){
-                    window.open('https://bullsparkrealty.com/grc-sapphire-spring.pdf', '_blank');
+                    window.open('https://bullsparkrealty.com/brochures/grc-sapphire-spring.pdf', '_blank');
                     document.getElementById("contactModalForm").reset();
                 } else {
                     alert("There was an error. Please try again.");
