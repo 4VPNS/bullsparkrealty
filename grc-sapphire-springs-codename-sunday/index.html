@@ -8,6 +8,11 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.core.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@glidejs/glide/dist/css/glide.theme.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lightgallery.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-zoom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/css/lg-video.css">
     <style>
         :root {
             --primary-blue: #0a4275;
@@ -46,7 +51,7 @@
             overflow-y: visible !important;
         }
         .hero-image {
-            background-image: url('https://images.unsplash.com/photo-1560185007-cde436f6a4d0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-image: url('../images/grc-stills\ \(4\).jpg');
             background-size: cover;
             background-position: center;
             height: 80vh;
@@ -146,6 +151,94 @@
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
+        /* Gallery Styles */
+        .gallery-section {
+            background: linear-gradient(to bottom, var(--light-blue), white);
+        }
+        .glide__slide {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        .glide__slide:hover {
+            transform: scale(1.05);
+        }
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .gallery-item img, .gallery-item video {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .gallery-item::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(10, 66, 117, 0.2);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .gallery-item:hover::after {
+            opacity: 1;
+        }
+        .gallery-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--primary-blue);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+        }
+        .gallery-nav.prev {
+            left: -20px;
+        }
+        .gallery-nav.next {
+            right: -20px;
+        }
+        .video-slide {
+            position: relative;
+            background: #000;
+            height: 250px;
+        }
+        .video-slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .video-play-button {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            background: rgba(255,255,255,0.9);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 2;
+        }
+        .video-play-button svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--primary-blue);
+            margin-left: 4px;
+        }
     </style>
     <!-- SEO Meta Tags -->
     <meta name="description" content="GRC Sapphire Springs - Luxury 2-4 BHK Apartments at Gottigere, Bangalore. Discover your dream home with world-class amenities.">
@@ -173,6 +266,8 @@
     <link rel="manifest" href="/images/favicons/grc-sapphire-spring/site.webmanifest">
     <meta name="msapplication-TileColor" content="#0a4275">
     <meta name="theme-color" content="#ffffff">
+        <!-- FontAwesome for icons -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -251,9 +346,8 @@ window.addEventListener('resize', adjustForMobile);
     <!-- Navigation -->
     <nav class="bg-white shadow-md fixed w-full z-50">
         <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-            <div class="flex items-center">
-                <h1 class=" text-lg font-md lg:text-2xl lg:font-bold text-primary-blue ">GRC Sapphire Springs</h1>
-                <span class="ml-2 bg-yellow-400 text-xs font-semibold px-2 py-1 rounded">Codename: SUNDAY</span>
+            <div class="flex items-center h-10 w-16 ml-6">
+                <img src="../images/sapphire-spring-logo.png" alt="grc sapphire spring logo" height="100%" width="auto" />
             </div>
             <div class="hidden md:flex space-x-6">
                 <a href="#home" class="text-primary-blue hover:text-secondary-blue font-medium">Home</a>
@@ -330,14 +424,14 @@ window.addEventListener('resize', adjustForMobile);
             </div>
             <div class="flex flex-col md:flex-row items-center">
                 <div class="md:w-1/2 mb-8 md:mb-0" data-aos="fade-up">
-                    <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="GRC Sapphire Springs" class="rounded-lg shadow-xl">
+                    <img src="/images/grc-stills (3).jpg" alt="GRC Sapphire Springs" class="rounded-lg shadow-xl">
                 </div>
                 <div class="md:w-1/2 md:pl-12" data-aos="fade-down">
                     <p class="text-gray-700 mb-6 leading-relaxed">
-                        Discover your dream home at GRC Sapphire Spring, an exquisite residential development nestled in Gundappa Layout, Gottigere, Bangalore. Offering a range of 2, 2.5, 3, and 4 BHK apartments, this pre-launch project combines contemporary design with world-class amenities.
+                        Discover your dream home at GRC Sapphire Spring, an exquisite residential development nestled in Gundappa Layout, Gottigere, Bangalore. Offering a range of 2, 2.5 and 3 BHK apartments, this pre-launch project combines contemporary design with world-class amenities.
                     </p>
                     <p class="text-gray-700 mb-6 leading-relaxed">
-                        With spacious layouts ranging from 800 to 1700 sq. ft. and a towering G+13 structure, every home promises comfort and elegance. Spread across 10 acres, GRC Sapphire Spring features meticulously planned units, ensuring ample open spaces and premium facilities.
+                        With spacious layouts ranging from 1215 to 1635 sq. ft. and a towering G+14 structure, every home promises comfort and elegance. Spread across 10 acres, GRC Sapphire Spring features meticulously planned units, ensuring ample open spaces and premium facilities.
                     </p>
                     <div class="grid grid-cols-2 gap-4 mb-6">
                         <div class="bg-light-blue p-4 rounded-lg">
@@ -459,29 +553,32 @@ window.addEventListener('resize', adjustForMobile);
                 <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="200">Explore our thoughtfully designed living spaces</p>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
-                <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up">
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-primary-blue">2 BHK</h3>
-                        <p class="text-gray-600 mt-2 my-6">800 sq.ft.</p>
-                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
+                <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative" data-aos="fade-up" style="background-image: url('../images/2bhk.png'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="p-10 text-center relative z-10">
+                        <h3 class="text-xl font-bold text-white">2 BHK</h3>
+                        <p class="text-gray-200 mt-2 my-6">800 sq.ft.</p>
+                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all">
                             Get Images
                         </button>
                     </div>
                 </div>
-                <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="100">
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-primary-blue">2.5 BHK</h3>
-                        <p class="text-gray-600 mt-2 my-6">1000 sq.ft.</p>
-                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
+                <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative" data-aos="fade-up" data-aos-delay="100" style="background-image: url('../images/25bhk.png'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="p-10 text-center relative z-10">
+                        <h3 class="text-xl font-bold text-white">2.5 BHK</h3>
+                        <p class="text-gray-200 mt-2 my-6">1000 sq.ft.</p>
+                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all">
                             Get Images
                         </button>
                     </div>
                 </div>
-                <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow" data-aos="fade-up" data-aos-delay="200">
-                    <div class="p-6 text-center">
-                        <h3 class="text-xl font-bold text-primary-blue">3 BHK</h3>
-                        <p class="text-gray-600 mt-2 my-6">1300 sq.ft.</p>
-                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all" onclick="openModal('contactModal')">
+                <div class="bg-light-blue rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow relative" data-aos="fade-up" data-aos-delay="200" style="background-image: url('../images/3bhk.png'); background-size: cover; background-position: center;">
+                    <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+                    <div class="p-10 text-center relative z-10">
+                        <h3 class="text-xl font-bold text-white">3 BHK</h3>
+                        <p class="text-gray-200 mt-2 my-6">1300 sq.ft.</p>
+                        <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all">
                             Get Images
                         </button>
                     </div>
@@ -542,35 +639,132 @@ window.addEventListener('resize', adjustForMobile);
         </div>
     </section>
 
-    <section>
-        <div class="text-center mb-12">
-            <h2 class="text-3xl font-bold text-primary-blue mt-6" data-aos="fade-up">Contact Us</h2>
-            <div class="w-24 h-1 bg-primary-blue mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
-        </div>
-      <form id="contactForm" action="https://script.google.com/macros/s/AKfycbyU4atgOykK4FRDzYCGATNfpezveZ6fQx9UeYc2eS11AhD_pycr3oTYMzSKbF6-GY4F/exec" method="POST" class="max-w-lg mx-auto bg-white rounded-lg shadow-md p-6 my-8">
-        <div class="mb-4">
-            <input type="text" id="project" name="project" value="bull spark realty" style="display: none;">
-          <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name:</label>
-          <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-        </div>
-        
-        <div class="mb-4">
-          <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
-          <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
-        </div>
+    <!-- Gallery Section -->
+    <section class="gallery-section py-16">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-primary-blue" data-aos="fade-up">Project Gallery</h2>
+                <div class="w-24 h-1 bg-primary-blue mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
+                <p class="text-gray-700 mt-4" data-aos="fade-up" data-aos-delay="200">Explore our project through images and videos</p>
+            </div>
 
-        <div class="mb-4">
-            <label for="number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number:</label>
-            <input type="text" id="number" name="number" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+            <div class="glide relative" data-aos="fade-up">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides" id="lightgallery">
+                        <li class="glide__slide" data-src="../images/grc-stills (1).jpg">
+                            <div class="gallery-item">
+                                <img src="../images/grc-stills (1).jpg" alt="Project Image 1">
+                            </div>
+                        </li>
+                        <li class="glide__slide" data-src="../images/grc-stills (2).jpg">
+                            <div class="gallery-item">
+                                <img src="../images/grc-stills (2).jpg" alt="Project Image 2">
+                            </div>
+                        </li>
+                        <li class="glide__slide" data-src="../images/grc-stills (3).jpg">
+                            <div class="gallery-item">
+                                <img src="../images/grc-stills (3).jpg" alt="Project Image 2">
+                            </div>
+                        </li>
+                        <li class="glide__slide" data-src="../images/grc-stills (4).jpg">
+                            <div class="gallery-item">
+                                <img src="../images/grc-stills (4).jpg" alt="Project Image 2">
+                            </div>
+                        </li>
+                        <li class="glide__slide" data-src="../images/grc-stills (5).jpg">
+                            <div class="gallery-item">
+                                <img src="../images/grc-stills (5).jpg" alt="Project Image 2">
+                            </div>
+                        </li>
+                        <li class="glide__slide" data-src="../images/grc-stills (6).jpg">
+                            <div class="gallery-item">
+                                <img src="../images/grc-stills (6).jpg" alt="Project Image 2">
+                            </div>
+                        </li>
+                        <!-- <li class="glide__slide" 
+                            data-src="https://drive.google.com/file/d/1UUSXULO1gbrqj3HOFgRm3lqenx20XjTC/view?usp=sharing"
+                            data-video='{"source": [{"src":"https://drive.google.com/file/d/1UUSXULO1gbrqj3HOFgRm3lqenx20XjTC/view?usp=sharing", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}'>
+                            <div class="gallery-item video-slide">
+                                <video poster="../images/video-thumbnail-1.jpg">
+                                    <source src="https://drive.google.com/file/d/1UUSXULO1gbrqj3HOFgRm3lqenx20XjTC/view?usp=sharing" type="video/mp4">
+                                </video>
+                                <div class="video-play-button">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="glide__slide" 
+                            data-src="https://drive.google.com/uc?export=download&id=11IFd-9dpeQ1GZDHbzzIJmIRikonxNOkE"
+                            data-video='{"source": [{"src":"https://drive.google.com/uc?export=download&id=11IFd-9dpeQ1GZDHbzzIJmIRikonxNOkE", "type":"video/mp4"}], "attributes": {"preload": false, "controls": true}}'>
+                            <div class="gallery-item video-slide">
+                                <video poster="../images/video-thumbnail-2.jpg">
+                                    <source src="https://drive.google.com/uc?export=download&id=11IFd-9dpeQ1GZDHbzzIJmIRikonxNOkE" type="video/mp4">
+                                </video>
+                                <div class="video-play-button">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M8 5v14l11-7z"/>
+                                    </svg>
+                                </div>
+                            </div>
+                        </li> -->
+                    </ul>
+                </div>
+                
+                <div class="gallery-nav prev" data-glide-el="controls">
+                    <button data-glide-dir="<">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="gallery-nav next" data-glide-el="controls">
+                    <button data-glide-dir=">">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
         </div>
-        
-        <div class="mb-4">
-          <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message:</label>
-          <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent"></textarea>
+    </section>
+
+    <section>
+        <div class="contact-section py-16" style="background-image: url('../images/grc-stills (2).jpg'); background-size: cover; background-position: center; position: relative;">
+            <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+            <div class="relative z-10">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold text-white mt-6" data-aos="fade-up">Contact Us</h2>
+                    <div class="w-24 h-1 bg-white mx-auto mt-4" data-aos="fade-up" data-aos-delay="100"></div>
+                </div>
+                <form id="contactForm" action="https://script.google.com/macros/s/AKfycbyU4atgOykK4FRDzYCGATNfpezveZ6fQx9UeYc2eS11AhD_pycr3oTYMzSKbF6-GY4F/exec" method="POST" class="max-w-lg mx-auto bg-white bg-opacity-90 backdrop-filter backdrop-blur-sm rounded-lg shadow-md p-6 my-8">
+                    <div class="mb-4">
+                        <input type="text" id="project" name="project" value="bull spark realty" style="display: none;">
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name:</label>
+                        <input type="text" id="name" name="name" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email:</label>
+                        <input type="email" id="email" name="email" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                    </div>
+
+                    <div class="mb-4">
+                        <label for="number" class="block text-sm font-medium text-gray-700 mb-1">Phone Number:</label>
+                        <input type="text" id="number" name="number" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent">
+                    </div>
+                    
+                    <div class="mb-4">
+                        <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message:</label>
+                        <textarea id="message" name="message" rows="4" class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-blue focus:border-transparent"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="w-full bg-primary-blue hover:bg-secondary-blue text-white font-semibold py-2 px-4 rounded-md shadow-lg transition-colors duration-300">Submit</button>
+                </form>
+            </div>
         </div>
-        
-        <button type="submit" class="w-full bg-primary-blue hover:bg-secondary-blue text-white font-semibold py-2 px-4 rounded-md shadow-lg transition-colors duration-300">Submit</button>
-      </form>
     </section>
 
     
@@ -615,6 +809,117 @@ window.addEventListener('resize', adjustForMobile);
             <p>Powered by Bull Spark Realty</p>
         </div>
     </footer>
+
+    <div class="cta-btns">
+        <button class="call-icon" onclick="makeCall()"><i class="fa-solid fa-phone"></i></button>
+        <button type="button" class="download-icon" data-bs-toggle="modal" data-bs-target="#contactModal" onclick="openBrochure()"><i class="fa-solid fa-arrow-down"></i></button>
+    </div>
+
+    <script>
+        function makeCall() {
+            window.location.href = "tel:+919353563635"; // Replace with the desired phone number
+        }
+
+        function openBrochure() {
+            openModal('contactModal'); // Opens the contact modal
+        }
+    </script>
+    <style>
+        .cta-btns {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .call-icon, .download-icon {
+            background-color: #1f78a3;
+            color: #FDFBEE;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .call-icon:hover, .download-icon:hover {
+            background-color: #4761A0;
+        }
+
+        .download-icon {
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/lightgallery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/plugins/zoom/lg-zoom.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lightgallery@2.0.0-beta.4/plugins/video/lg-video.min.js"></script>
+    <script>
+        // Initialize Glide.js
+        new Glide('.glide', {
+            type: 'carousel',
+            perView: 3,
+            gap: 20,
+            breakpoints: {
+                768: {
+                    perView: 2
+                },
+                480: {
+                    perView: 1
+                }
+            }
+        }).mount();
+
+        // Initialize lightGallery with updated options
+        lightGallery(document.getElementById('lightgallery'), {
+            selector: '.glide__slide',
+            plugins: [lgZoom, lgVideo],
+            speed: 500,
+            download: false,
+            videojs: false,
+            hideControlOnEnd: false,
+            getCaptionFromTitleOrAlt: false,
+            videojsOptions: {
+                muted: false,
+                controls: true,
+                autoplay: false
+            }
+        });
+
+        // Add video thumbnail click handler
+        document.querySelectorAll('.video-play-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const slide = button.closest('.glide__slide');
+                const videoUrl = slide.getAttribute('data-src');
+                const video = slide.querySelector('video');
+                if (video) {
+                    video.src = videoUrl;
+                    video.play();
+                }
+            });
+        });
+    </script>
 
     <script>
         document.getElementById("contactForm").addEventListener("submit", function(event){
