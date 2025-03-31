@@ -93,7 +93,7 @@
 /* Better responsive hero section */
 @media (max-width: 768px) {
     .hero-image {
-        height: 60vh;
+        height: 104vh;
     }
     
     .hero-overlay .text-4xl {
@@ -264,7 +264,9 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/images/favicons/grc-sapphire-spring/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/images/favicons/grc-sapphire-spring/favicon-16x16.png">
     <link rel="manifest" href="/images/favicons/grc-sapphire-spring/site.webmanifest">
+    <link rel="shortcut icon" href="/images/favicons/grc-sapphire-spring/favicon.ico">
     <meta name="msapplication-TileColor" content="#0a4275">
+    <meta name="msapplication-config" content="/images/favicons/grc-sapphire-spring/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
         <!-- FontAwesome for icons -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -382,7 +384,7 @@ window.addEventListener('resize', adjustForMobile);
         <div class="hero-overlay flex items-center justify-center">
             <div class="container mx-auto px-4 py-16 text-center text-white">
                 <div data-aos="fade-up" data-aos-duration="1000">
-                    <h1 class="text-4xl md:text-6xl font-bold mb-4">GRC Sapphire Springs</h1>
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">GRC Sapphire Spring</h1>
                     <p class="text-xl md:text-2xl mb-8">Your Gateway to Elevated Living</p>
                     <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
                         <button onclick="openModal('contactModal')" class="bg-white text-primary-blue px-6 py-3 rounded-lg font-semibold hover:bg-gray-100 transition-all pulse">
@@ -414,6 +416,19 @@ window.addEventListener('resize', adjustForMobile);
             </div>
         </div>
     </section>
+    <style>
+        @media (max-width: 768px) {
+            .hero-overlay {
+                padding: 2rem 1rem;
+            }
+            .hero-overlay h1 {
+                font-size: 2rem;
+            }
+            .hero-overlay p {
+                font-size: 1rem;
+            }
+        }
+    </style>
 
     <!-- About Project -->
     <section id="about" class="py-16 bg-white">
@@ -453,7 +468,7 @@ window.addEventListener('resize', adjustForMobile);
                     </div>
                     <div class="flex space-x-4">
                         <span class="bg-primary-blue text-white px-3 py-1 rounded-full text-sm">RERA Approved</span>
-                        <span class="bg-primary-blue text-white px-3 py-1 rounded-full text-sm">BMRDA</span>
+                        <span class="bg-primary-blue text-white px-3 py-1 rounded-full text-sm">BBMP Approved</span>
                         <span class="bg-primary-blue text-white px-3 py-1 rounded-full text-sm">E Khata</span>
                     </div>
                 </div>
@@ -557,7 +572,7 @@ window.addEventListener('resize', adjustForMobile);
                     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
                     <div class="p-10 text-center relative z-10">
                         <h3 class="text-xl font-bold text-white">2 BHK</h3>
-                        <p class="text-gray-200 mt-2 my-6">800 sq.ft.</p>
+                        <p class="text-gray-200 mt-2 my-6">1215 sq.ft.</p>
                         <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all">
                             Get Images
                         </button>
@@ -567,7 +582,7 @@ window.addEventListener('resize', adjustForMobile);
                     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
                     <div class="p-10 text-center relative z-10">
                         <h3 class="text-xl font-bold text-white">2.5 BHK</h3>
-                        <p class="text-gray-200 mt-2 my-6">1000 sq.ft.</p>
+                        <p class="text-gray-200 mt-2 my-6">1300 sq.ft. to 1380 sq.ft.</p>
                         <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all">
                             Get Images
                         </button>
@@ -577,7 +592,7 @@ window.addEventListener('resize', adjustForMobile);
                     <div class="absolute inset-0 bg-black bg-opacity-50"></div>
                     <div class="p-10 text-center relative z-10">
                         <h3 class="text-xl font-bold text-white">3 BHK</h3>
-                        <p class="text-gray-200 mt-2 my-6">1300 sq.ft.</p>
+                        <p class="text-gray-200 mt-2 my-6">1435 sq.ft. to 1635 sq.ft.</p>
                         <button onclick="openModal('contactModal')" class="bg-primary-blue text-white px-6 py-2 rounded-lg hover:bg-secondary-blue transition-all">
                             Get Images
                         </button>
