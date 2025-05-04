@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prestige Southern Star - Akshayanagar, Bangalore</title>
+    <meta name="description" content="Prestige Southern Star offers luxury 1, 2, 3, and 4 BHK residences at Akshayanagar, Bangalore. 80% open spaces, premium amenities, and trusted by Prestige Group. Powered by Bull Spark Realty.">
+    <meta name="keywords" content="Prestige Southern Star, Prestige Group, Akshayanagar, Bangalore, luxury residences, 1 BHK, 2 BHK, 3 BHK, 4 BHK, premium apartments, real estate, Bull Spark Realty">
+    <meta name="author" content="Bull Spark Realty">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Prestige Southern Star - Akshayanagar, Bangalore">
+    <meta property="og:description" content="Prestige Southern Star offers luxury 1, 2, 3, and 4 BHK residences at Akshayanagar, Bangalore. 80% open spaces, premium amenities, and trusted by Prestige Group. Powered by Bull Spark Realty.">
+    <meta property="og:image" content="/images/prestige-elevation2.png">
+    <meta property="og:url" content="https://bullsparkrealty.com/prestige-southern-star">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Prestige Southern Star - Akshayanagar, Bangalore">
+    <meta name="twitter:description" content="Prestige Southern Star offers luxury 1, 2, 3, and 4 BHK residences at Akshayanagar, Bangalore. 80% open spaces, premium amenities, and trusted by Prestige Group. Powered by Bull Spark Realty.">
+    <meta name="twitter:image" content="/images/prestige-elevation2.png">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://bullsparkrealty.com/prestige-southern-star">
+
+    <!-- Favicons (Bull Spark Realty) -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+    <link rel="manifest" href="/favicons/site.webmanifest">
+    <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#b8860b">
+    <link rel="shortcut icon" href="/favicons/favicon.ico">
+    <meta name="msapplication-TileColor" content="#b8860b">
+    <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Structured Data: JSON-LD for Real Estate Project -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Residence",
+      "name": "Prestige Southern Star",
+      "description": "Prestige Southern Star offers luxury 1, 2, 3, and 4 BHK residences at Akshayanagar, Bangalore. 80% open spaces, premium amenities, and trusted by Prestige Group.",
+      "image": [
+        "https://bullsparkrealty.com/images/prestige-elevation2.png"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Akshayanagar",
+        "addressLocality": "Bangalore",
+        "addressRegion": "Karnataka",
+        "postalCode": "560068",
+        "addressCountry": "IN"
+      },
+      "brand": {
+        "@type": "Brand",
+        "name": "Prestige Group"
+      },
+      "offers": {
+        "@type": "Offer",
+        "priceCurrency": "INR",
+        "price": "82 Lakhs - 3.65 Crore",
+        "availability": "https://schema.org/InStock"
+      },
+      "amenityFeature": [
+        {"@type": "LocationFeatureSpecification", "name": "80% Open Spaces"},
+        {"@type": "LocationFeatureSpecification", "name": "Grand Central Park"},
+        {"@type": "LocationFeatureSpecification", "name": "Premium Amenities"}
+      ],
+      "url": "https://bullsparkrealty.com/prestige-southern-star",
+      "potentialAction": {
+        "@type": "ReserveAction",
+        "target": "https://bullsparkrealty.com/prestige-southern-star#contact"
+      }
+    }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .hero-section {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/prestige-elevation2.png');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+        }
+        
+        .section-heading::after {
+            content: "";
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: #D3AF37;
+            margin: 10px auto 0;
+        }
+        
+        .gallery-img {
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .floor-plan-img {
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+        
+        .floor-plan-img:hover {
+            transform: scale(1.05);
+        }
+        
+        .modal {
+            transition: opacity 0.3s ease;
+        }
+        
+        .amenity-icon {
+            font-size: 2rem;
+            color: #D3AF37;
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #D3AF37;
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+    <!-- Navigation Menu -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <img src="/images/prestige-southern-star-logo.webp" alt="Prestige Group Logo" class="h-10">
+                </div>
+                
+                <div class="hidden md:flex space-x-8 text-sm font-medium">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#overview" class="nav-link">Overview</a>
+                    <a href="#gallery" class="nav-link">Gallery</a>
+                    <a href="#floor-plans" class="nav-link">Floor Plans</a>
+                    <a href="#amenities" class="nav-link">Amenities</a>
+                    <a href="#location" class="nav-link">Location</a>
+                </div>
+                
+                <div>
+                    <a href="tel:+918000000000" class="hidden md:inline-block bg-gradient-to-r from-yellow-600 to-yellow-400 text-white py-2 px-6 rounded-full font-semibold transition duration-300 ease-in-out hover:shadow-lg">
+                        <i class="fas fa-phone-alt mr-2"></i>Contact Us
+                    </a>
+                    <button id="mobile-menu-button" class="md:hidden text-gray-700">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="md:hidden hidden">
+                <div class="flex flex-col space-y-4 mt-4 mb-2 font-medium">
+                    <a href="#home" class="py-2">Home</a>
+                    <a href="#overview" class="py-2">Overview</a>
+                    <a href="#gallery" class="py-2">Gallery</a>
+                    <a href="#floor-plans" class="py-2">Floor Plans</a>
+                    <a href="#amenities" class="py-2">Amenities</a>
+                    <a href="#location" class="py-2">Location</a>
+                    <a href="tel:+91 9353563635" class="py-2 text-yellow-600">
+                        <i class="fas fa-phone-alt mr-2"></i>Contact Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section flex items-center justify-center pt-16">
+        <div class="container mx-auto px-4 text-center text-white">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">Prestige Southern Star</h1>
+            <h2 class="text-xl md:text-3xl mb-6">Luxury Residences at Akshayanagar</h2>
+            <p class="text-lg md:text-xl mb-8">RERA Approved Premium Homes | 30+ Acres of Modern Living</p>
+            <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center">
+                <a href="#floor-plans" class="bg-gradient-to-r from-yellow-600 to-yellow-400 hover:from-yellow-500 hover:to-yellow-300 text-white py-3 px-8 rounded-full font-bold transition duration-300 transform hover:scale-105">
+                    View Floor Plans
+                </a>
+                <a href="#contact" class="bg-white text-gray-800 hover:bg-gray-100 py-3 px-8 rounded-full font-bold transition duration-300 transform hover:scale-105">
+                    Request Callback
+                </a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- Back to Top Button -->
+    <a href="#home" id="back-to-top" class="fixed bottom-6 right-6 bg-yellow-600 text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-yellow-700">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+
+    <!-- USP Section -->
+    <section id="overview" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Uniquely Crafted for You</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- USP 1 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-yellow-600 text-4xl mb-4">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Prime Location</h3>
+                    <p class="text-gray-600">Excellent connectivity to Bannerghatta Road and NICE Road. Just 4 kms from Hulimavu Metro Station and 3 kms from Singasandra Metro Station.</p>
+                </div>
+                
+                <!-- USP 2 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-yellow-600 text-4xl mb-4">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Abundant Open Spaces</h3>
+                    <p class="text-gray-600">Enjoy 80% open spaces including a grand central park, offering a serene environment amid urban conveniences.</p>
+                </div>
+                
+                <!-- USP 3 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-yellow-600 text-4xl mb-4">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Active Lifestyle</h3>
+                    <p class="text-gray-600">An active fitness district with basketball, mini football, volleyball courts and a mini-cricket ground, plus 3 swimming pools.</p>
+                </div>
+                
+                <!-- USP 4 -->
+                <div class="bg-white p-6 rounded-lg shadow-lg transition duration-300 hover:shadow-xl">
+                    <div class="text-yellow-600 text-4xl mb-4">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Versatile Home Options</h3>
+                    <p class="text-gray-600">Choose from 1, 2, 3, and 4 BHK homes with select layouts featuring integrated home offices for modern living.</p>
+                </div>
+            </div>
+            
+            <!-- Project Overview -->
+            <div class="mt-16 bg-white p-8 rounded-lg shadow-lg">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Project Overview</h3>
+                        <p class="text-gray-600 mb-6">Prestige Southern Star is a luxurious residential project spread across 30+ acres in Akshayanagar, Bangalore. The project offers meticulously designed 1, 2, 3, and 4 BHK homes with home offices in select layouts, catering to the evolving needs of modern homebuyers.</p>
+                        <p class="text-gray-600">With 80% open spaces including a large central park, Prestige Southern Star offers a perfect blend of modern amenities and natural surroundings, creating an ideal living environment for families.</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-bold mb-4">Unit Types & Pricing</h3>
+                        <div class="space-y-3">
+                            <div class="flex justify-between py-2 border-b">
+                                <span class="font-medium">1 Bedroom</span>
+                                <div>
+                                    <span class="text-sm text-gray-600">695 sq.ft</span>
+                                    <span class="ml-2 font-semibold">₹82 - 92 Lacs*</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between py-2 border-b">
+                                <span class="font-medium">2 Bedroom</span>
+                                <div>
+                                    <span class="text-sm text-gray-600">1138-1289 sq.ft</span>
+                                    <span class="ml-2 font-semibold">₹1.3 - 1.55 Cr*</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between py-2 border-b">
+                                <span class="font-medium">3 Bedroom</span>
+                                <div>
+                                    <span class="text-sm text-gray-600">1463-1883 sq.ft</span>
+                                    <span class="ml-2 font-semibold">₹1.55 - 2.45 Cr*</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between py-2 border-b">
+                                <span class="font-medium">3 Bedroom + HO</span>
+                                <div>
+                                    <span class="text-sm text-gray-600">2083-2118 sq.ft</span>
+                                    <span class="ml-2 font-semibold">₹2.37 - 2.87 Cr*</span>
+                                </div>
+                            </div>
+                            <div class="flex justify-between py-2">
+                                <span class="font-medium">4 Bedroom + HO</span>
+                                <div>
+                                    <span class="text-sm text-gray-600">2690-2774 sq.ft</span>
+                                    <span class="ml-2 font-semibold">₹3.06 - 3.65 Cr*</span>
+                                </div>
+                            </div>
+                            <p class="text-xs text-gray-500 mt-4">* Prices mentioned are exclusive of other charges, GST and Registration charges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Project Gallery</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="/images/prestige-elevation.jpeg" alt="Exterior View" class="w-full gallery-img">
+                    <div class="p-4">
+                        <h3 class="font-semibold">Exterior View</h3>
+                    </div>
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="/images/3d-rendering-loft-luxury-living-room-with-bookshelf-near-bookshelf.jpg" alt="Living Room" class="w-full gallery-img">
+                    <div class="p-4">
+                        <h3 class="font-semibold">Living Room</h3>
+                    </div>
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="/images/3d-rendering-beautiful-comtemporary-luxury-bedroom-suite-hotel-with-tv.jpg" alt="Master Bedroom" class="w-full gallery-img">
+                    <div class="p-4">
+                        <h3 class="font-semibold">Master Bedroom</h3>
+                    </div>
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="/images/ocean-travel-modern-nobody-infinity.jpg" alt="Swimming Pool" class="w-full gallery-img">
+                    <div class="p-4">
+                        <h3 class="font-semibold">Swimming Pool</h3>
+                    </div>
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="/images/prestige-club-house.jpeg" alt="Clubhouse" class="w-full gallery-img">
+                    <div class="p-4">
+                        <h3 class="font-semibold">Clubhouse</h3>
+                    </div>
+                </div>
+                
+                <div class="overflow-hidden rounded-lg shadow-lg">
+                    <img src="/images/prestige-open-space2.jpeg" alt="Central Park" class="w-full gallery-img">
+                    <div class="p-4">
+                        <h3 class="font-semibold">Central Park</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <button id="view-more-btn" class="bg-white border-2 border-yellow-600 text-yellow-600 hover:bg-yellow-600 hover:text-white px-6 py-2 rounded-full font-semibold transition duration-300">
+                    View More Images
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floor Plans Section -->
+    <section id="floor-plans" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Floor Plans</h2>
+            
+            <!-- Floor Plan Tabs -->
+            <div class="mb-8">
+                <div class="flex flex-wrap justify-center gap-2 mb-8">
+                    <button class="floor-tab-btn active bg-yellow-600 text-white px-4 py-2 rounded-md" data-type="1bhk">1 BHK</button>
+                    <button class="floor-tab-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md" data-type="2bhk">2 BHK</button>
+                    <button class="floor-tab-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md" data-type="3bhk">3 BHK</button>
+                    <button class="floor-tab-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md" data-type="4bhk-ho">4 BHK</button>
+                    <button class="floor-tab-btn bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-md" data-type="master">Master Plan</button>
+                </div>
+            </div>
+            
+            <!-- Floor Plan Content -->
+            <div class="floor-plan-content">
+                <!-- 1 BHK -->
+                <div class="floor-plan-tab" id="1bhk">
+                    
+                        <div class="bg-white p-6 rounded-lg shadow-lg max-w-[800px] mx-auto">
+                            <div class="floor-plan-img-container cursor-pointer" data-plan="1bhk-695">
+                                <img src="/images/1bhk-southern-star.png" alt="1 BHK - 695 sq.ft" class="w-full floor-plan-img">
+                            </div>
+                            <div class="mt-4">
+                                <h3 class="text-xl font-bold">1 BHK Apartment</h3>
+                                <div class="flex justify-between mt-2">
+                                    <span class="text-gray-600">Area: 695 sq.ft</span>
+                                    <span class="font-semibold text-yellow-600">₹82 - 92 Lacs*</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+                <!-- 2 BHK -->
+                <div class="floor-plan-tab hidden" id="2bhk">
+                        <div class="bg-white p-6 rounded-lg shadow-lg max-w-[800px] mx-auto">
+                            <div class="floor-plan-img-container cursor-pointer" data-plan="2bhk-1138">
+                                <img src="/images/2bhk-southern-star.png" alt="2 BHK - 1138 sq.ft" class="w-full floor-plan-img">
+                            </div>
+                            <div class="mt-4">
+                                <h3 class="text-xl font-bold">2 BHK Apartment</h3>
+                                <div class="flex justify-between mt-2">
+                                    <span class="text-gray-600">Area: 1138 sq.ft</span>
+                                    <span class="font-semibold text-yellow-600">₹1.3 Cr*</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+                <!-- 3 BHK -->
+                <div class="floor-plan-tab hidden" id="3bhk">
+                        <div class="bg-white p-6 rounded-lg shadow-lg max-w-[800px] mx-auto">
+                            <div class="floor-plan-img-container cursor-pointer" data-plan="3bhk-1463">
+                                <img src="/images/3bhk-southern-star.png" alt="3 BHK - 1463 sq.ft" class="w-full floor-plan-img">
+                            </div>
+                            <div class="mt-4">
+                                <h3 class="text-xl font-bold">3 BHK Apartment</h3>
+                                <div class="flex justify-between mt-2">
+                                    <span class="text-gray-600">Area: 1463 sq.ft</span>
+                                    <span class="font-semibold text-yellow-600">₹1.55 Cr*</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+                <!-- 4 BHK + HO -->
+                <div class="floor-plan-tab hidden" id="4bhk-ho">
+                        <div class="bg-white p-6 rounded-lg shadow-lg max-w-[800px] mx-auto">
+                            <div class="floor-plan-img-container cursor-pointer" data-plan="4bhk-ho-2690">
+                                <img src="/images/4bhk-southern-star.png" alt="4 BHK + HO - 2690 sq.ft" class="w-full floor-plan-img">
+                            </div>
+                            <div class="mt-4">
+                                <h3 class="text-xl font-bold">4 BHK</h3>
+                                <div class="flex justify-between mt-2">
+                                    <span class="text-gray-600">Area: 2690 sq.ft</span>
+                                    <span class="font-semibold text-yellow-600">₹3.06 Cr*</span>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+                
+                <!-- Master Plan -->
+                <div class="floor-plan-tab hidden" id="master">
+                    <div class="bg-white p-6 rounded-lg shadow-lg max-w-[800px] mx-auto">
+                        <div class="floor-plan-img-container cursor-pointer" data-plan="master-plan">
+                            <img src="/images/master-plan-southern-star.png" alt="Master Plan" class="w-full floor-plan-img">
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="text-xl font-bold">Master Plan - Prestige Southern Star</h3>
+                            <p class="text-gray-600 mt-2">30+ acres of thoughtfully planned spaces with 80% open area</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Floor Plan Modal -->
+            <div id="floor-plan-modal" class="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center hidden modal">
+                <div class="bg-white max-w-6xl w-11/12 rounded-lg overflow-hidden relative">
+                    <div class="p-4 border-b flex justify-between items-center">
+                        <h3 id="modal-title" class="text-xl font-bold">Floor Plan</h3>
+                        <button id="close-modal" class="text-gray-500 hover:text-gray-800">
+                            <i class="fas fa-times text-xl"></i>
+                        </button>
+                    </div>
+                    <div class="p-6">
+                        <img id="modal-image" src="" alt="Floor Plan" class="w-full max-h-[70vh] object-contain">
+                    </div>
+                    <div class="p-4 bg-gray-50 flex justify-between">
+                        <div id="modal-details" class="text-gray-700"></div>
+                        <a href="#contact" class="bg-yellow-600 text-white px-6 py-2 rounded-md hover:bg-yellow-700 transition duration-300">
+                            Enquire Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contact" class="inline-block bg-gradient-to-r from-yellow-600 to-yellow-400 hover:from-yellow-500 hover:to-yellow-300 text-white py-3 px-8 rounded-full font-bold transition duration-300 transform hover:scale-105">
+                    Schedule a Visit
+                </a>
+            </div>
+        </div>
+    </section>
+
+
+    <section id="amenities" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">World-Class Amenities</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Amenities Column 1 -->
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-spa amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Spa & Wellness</h3>
+                            <p class="text-gray-600">Rejuvenate your senses at our dedicated spa and wellness center.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-swimming-pool amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Swimming Pools</h3>
+                            <p class="text-gray-600">3 swimming pools including a temperature-controlled pool with deck for year-round enjoyment.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amenities Column 2 -->
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-basketball-ball amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Sports Courts</h3>
+                            <p class="text-gray-600">Basketball court, mini football court, volleyball court, and a mini-cricket ground.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-tree amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Central Park</h3>
+                            <p class="text-gray-600">Sprawling central park offering a serene environment for relaxation and recreation.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-child amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Children's Play Area</h3>
+                            <p class="text-gray-600">Dedicated play zones designed for children of different age groups.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Amenities Column 3 -->
+                <div class="space-y-6">
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-film amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Mini Theatre</h3>
+                            <p class="text-gray-600">Private screening room for an immersive entertainment experience.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-gamepad amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Gaming Arcade</h3>
+                            <p class="text-gray-600">Modern gaming arena with the latest entertainment options.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start">
+                        <div class="mr-4">
+                            <div class="bg-yellow-50 p-3 rounded-full">
+                                <i class="fas fa-coffee amenity-icon"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold mb-2">Café</h3>
+                            <p class="text-gray-600">Stylish café serving refreshments in a relaxed atmosphere.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Advantages Section -->
+    <section id="location-advantages" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Location Advantages</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="bg-white p-6 rounded-lg shadow-lg">
+                        <h3 class="text-xl font-bold mb-4">Strategic Location</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>4 kms from Hulimavu Road Metro Station</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>3 kms from Singasandra Metro Station</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>Excellent connectivity to Bannerghatta Road</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>Easy access to NICE Road</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>Proximity to major IT parks and business hubs</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>Close to premium educational institutions</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>Nearby healthcare facilities including major hospitals</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-600 mt-1 mr-3"></i>
+                                <span>Shopping malls and entertainment centers in vicinity</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <img src="/images/location-southern-star.png" alt="Location Advantages" class="rounded-lg shadow-lg w-full">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Location Section -->
+    <section id="location" class="py-16">
+        <div class="container mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 section-heading">Location</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-bold mb-4">Prestige Southern Star, Akshayanagar</h3>
+                    <p class="text-gray-600 mb-6">Prestige Southern Star is strategically located in Akshayanagar, offering excellent connectivity to key areas of Bangalore while providing a serene living environment.</p>
+                    
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="text-yellow-600 mr-3">
+                                <i class="fas fa-map-marker-alt text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Address</h4>
+                                <p class="text-gray-600">Akshayanagar, Off Bannerghatta Road, Bangalore</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-yellow-600 mr-3">
+                                <i class="fas fa-train text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Metro Stations</h4>
+                                <p class="text-gray-600">4 kms from Hulimavu Road Metro Station</p>
+                                <p class="text-gray-600">3 kms from Singasandra Metro Station</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="text-yellow-600 mr-3">
+                                <i class="fas fa-road text-xl"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold">Road Connectivity</h4>
+                                <p class="text-gray-600">Excellent connectivity to Bannerghatta Road and NICE Road</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="h-96 bg-gray-200 rounded-lg overflow-hidden shadow-lg">
+                    <!-- Google Maps Embed -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.4113452267834!2d77.61770857804393!3d12.872951784655273!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae6bb9e3ed4057%3A0xde697386b3b53b01!2sPrestige%20Southern%20Star!5e1!3m2!1sen!2sin!4v1746364813963!5m2!1sen!2sin" width="100%" height="100%" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gradient-to-r from-yellow-600 to-yellow-400 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-2xl mx-auto">
+                <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
+                
+                <div class="bg-white rounded-lg shadow-xl p-8 text-gray-800">
+                    <form id="contact-form" class="space-y-6" action="https://script.google.com/macros/s/AKfycbx0RKk8rGlFTN73t5DxIzLUlRsUJnWuqb1PFMmCGYuwaNJXbHlfmyazilftXH6Bf8kr/exec" method="POST">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block mb-1 font-medium">Your Name</label>
+                                <input type="text" name="name" id="name" placeholder="Enter your name" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                            
+                            <div>
+                                <label for="phone" class="block mb-1 font-medium">Phone Number</label>
+                                <input type="tel" name="phone" id="phone" placeholder="Enter your phone number" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <label for="email" class="block mb-1 font-medium">Email Address</label>
+                            <input type="email" name="email" id="email" placeholder="Enter your email address" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                        </div>
+                        
+                        <div>
+                            <label for="interest" class="block mb-1 font-medium">Interested In</label>
+                            <select id="interest" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500">
+                                <option value="">Select Unit Type</option>
+                                <option value="1bhk">1 BHK</option>
+                                <option value="2bhk">2 BHK</option>
+                                <option value="3bhk">3 BHK</option>
+                                <option value="3bhk-ho">3 BHK + Home Office</option>
+                                <option value="4bhk-ho">4 BHK + Home Office</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block mb-1 font-medium">Message (Optional)</label>
+                            <textarea id="message" name="message" rows="3" placeholder="Any specific requirements or queries?" class="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-yellow-500"></textarea>
+                        </div>
+                        
+                        <div class="text-center">
+                            <button type="submit" class="bg-gradient-to-r from-yellow-600 to-yellow-400 text-white py-3 px-8 rounded-md font-semibold hover:shadow-lg transition duration-300">
+                                Submit Inquiry
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- Footer -->
+        <footer class="bg-gray-900 text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div>
+                        <img src="/images/prestige-southern-star-logo.webp" alt="Prestige Group Logo" class="h-12 mb-6">
+                        <p class="text-gray-400 mb-4">Prestige Group, established in 1986, is one of India's leading real estate developers with a legacy of creating world-class residential, commercial, retail, and hospitality projects.</p>
+                        <div class="flex space-x-4">
+                            <a href="https://www.facebook.com/profile.php?id=61574196958290#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <!-- <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a> -->
+                            <a href="https://www.instagram.com/bullsparkrealty/" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@BullSparkRealty" class="text-gray-400 hover:text-white transition-colors">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-6">Quick Links</h3>
+                        <ul class="space-y-3">
+                            <li><a href="#home" class="text-gray-400 hover:text-white transition-colors">Home</a></li>
+                            <li><a href="#overview" class="text-gray-400 hover:text-white transition-colors">Overview</a></li>
+                            <li><a href="#gallery" class="text-gray-400 hover:text-white transition-colors">Gallery</a></li>
+                            <li><a href="#floor-plans" class="text-gray-400 hover:text-white transition-colors">Floor Plans</a></li>
+                            <li><a href="#amenities" class="text-gray-400 hover:text-white transition-colors">Amenities</a></li>
+                            <li><a href="#location" class="text-gray-400 hover:text-white transition-colors">Location</a></li>
+                            <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h3 class="text-lg font-semibold mb-6">Contact Information</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-map-marker-alt text-yellow-500 mt-1 mr-3"></i>
+                                <span class="text-gray-400">Prestige Southern Star, Akshayanagar, Off Bannerghatta Road, Bangalore</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-phone-alt text-yellow-500 mt-1 mr-3"></i>
+                                <a href="tel:+91 9353563635" class="text-gray-400 hover:text-white">+91 9353563635</a>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-envelope text-yellow-500 mt-1 mr-3"></i>
+                                <a href="mailto:info@bullsparkrealty.com" class="text-gray-400 hover:text-white">info@bullsparkrealty.com</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">© 2025 Prestige Group. All rights reserved. RERA Approved.</p>
+                    <p class="text-gray-500 text-sm">Powered by <span class="text-yellow-500 font-medium">Bull Spark Realty</span></p>
+                </div>
+            </div>
+        </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Floor Plan Tabs
+        const floorTabBtns = document.querySelectorAll('.floor-tab-btn');
+        const floorPlanTabs = document.querySelectorAll('.floor-plan-tab');
+        
+        floorTabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons
+                floorTabBtns.forEach(btn => {
+                    btn.classList.remove('active', 'bg-yellow-600', 'text-white');
+                    btn.classList.add('bg-gray-200');
+                });
+                
+                // Add active class to clicked button
+                btn.classList.add('active', 'bg-yellow-600', 'text-white');
+                btn.classList.remove('bg-gray-200');
+                
+                // Hide all tabs
+                floorPlanTabs.forEach(tab => {
+                    tab.classList.add('hidden');
+                });
+                
+                // Show the selected tab
+                const tabId = btn.getAttribute('data-type');
+                document.getElementById(tabId).classList.remove('hidden');
+            });
+        });
+        
+        // Floor Plan Modal
+        const floorPlanImgContainers = document.querySelectorAll('.floor-plan-img-container');
+        const floorPlanModal = document.getElementById('floor-plan-modal');
+        const closeModal = document.getElementById('close-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalImage = document.getElementById('modal-image');
+        const modalDetails = document.getElementById('modal-details');
+        
+        floorPlanImgContainers.forEach(container => {
+            container.addEventListener('click', () => {
+                const plan = container.getAttribute('data-plan');
+                const img = container.querySelector('img');
+                
+                modalTitle.textContent = img.alt;
+                modalImage.src = img.src;
+                modalImage.alt = img.alt;
+                
+                // Set modal details based on plan type
+                if (plan.includes('1bhk')) {
+                    modalDetails.innerHTML = '<p>Area: 695 sq.ft | Price: ₹82 - 92 Lacs*</p>';
+                } else if (plan.includes('2bhk')) {
+                    modalDetails.innerHTML = '<p>Area: 1138-1289 sq.ft | Price: ₹1.3 - 1.55 Cr*</p>';
+                } else if (plan.includes('3bhk-ho')) {
+                    modalDetails.innerHTML = '<p>Area: 2083-2118 sq.ft | Price: ₹2.37 - 2.87 Cr*</p>';
+                } else if (plan.includes('3bhk')) {
+                    modalDetails.innerHTML = '<p>Area: 1463-1883 sq.ft | Price: ₹1.55 - 2.45 Cr*</p>';
+                } else if (plan.includes('4bhk')) {
+                    modalDetails.innerHTML = '<p>Area: 2690-2774 sq.ft | Price: ₹3.06 - 3.65 Cr*</p>';
+                } else if (plan.includes('master')) {
+                    modalDetails.innerHTML = '<p>30+ acres | 80% open spaces</p>';
+                }
+                
+                floorPlanModal.classList.remove('hidden');
+                setTimeout(() => {
+                    floorPlanModal.classList.add('opacity-100');
+                }, 10);
+            });
+        });
+        
+        closeModal.addEventListener('click', () => {
+            floorPlanModal.classList.remove('opacity-100');
+            setTimeout(() => {
+                floorPlanModal.classList.add('hidden');
+            }, 300);
+        });
+
+            document.getElementById("contact-form").addEventListener("submit", function(event){
+                event.preventDefault(); //prevent the default form submission.
+                fetch(this.action, {
+                    method: 'POST',
+                    body: new URLSearchParams(new FormData(this))
+                })
+                .then(response => response.text())
+                .then(data => {
+                    if(data === "success"){
+                        alert("Thank you! Your message has been sent. Click on 'ok' to access brochure");
+                        document.getElementById("contact-form").reset();
+                        window.open('/brochures/prestige-southern-star.pdf', '_blank');
+                    } else {
+                        alert("There was an error. Please try again.");
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert("An unexpected error has occured.");
+                });
+            });
+        
+        // Click outside to close modal
+        floorPlanModal.addEventListener('click', (e) => {
+            if (e.target === floorPlanModal) {
+                floorPlanModal.classList.remove('opacity-100');
+                setTimeout(() => {
+                    floorPlanModal.classList.add('hidden');
+                }, 300);
+            }
+        });
+        
+        // Back to Top Button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('opacity-0', 'invisible');
+                backToTopButton.classList.add('opacity-100', 'visible');
+            } else {
+                backToTopButton.classList.remove('opacity-100', 'visible');
+                backToTopButton.classList.add('opacity-0', 'invisible');
+            }
+        });
+        
+        // Smooth Scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });0
+        
+        // View More Gallery Button
+        const viewMoreBtn = document.getElementById('view-more-btn');
+        
+        viewMoreBtn.addEventListener('click', () => {
+            alert('Full gallery will be displayed here. Currently using placeholder images.');
+        });
+    </script>
+</body>
+</html>
